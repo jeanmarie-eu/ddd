@@ -81,7 +81,7 @@ initCondD <-2                         # Represents the potential volume of water
 
 # PATH RESULTS
 #pathResults   <- "/your/path/"
-pathResults   <- "C:/Users/jm/Google Drive/nexModeling/2. Product/2.Product/"
+pathResults   <- "~/"
 pathResults   <- paste0(pathResults,"dddRes_",format(Sys.time(), "%Y-%m-%d-%H-%M",tz="GMT"),"/")
 dir.create(pathResults, showWarnings = FALSE)
 
