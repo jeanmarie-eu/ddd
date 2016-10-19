@@ -10,5 +10,4 @@
 #' @keywords datasets
 #' @references the Norwegian Water Resources and Energy Directorate (NVE)
 #' @source \href{http://www.nve.no}{NVE}
-
 NULL
