@@ -170,7 +170,7 @@ scaob   <- NA
 ###################################################################################################
 
 # GET MODELS
-models <- ddd::init.getModel(getModel=getModel,path=pathModel,Timeresinsec=timePeriod$Timeresinsec,SAVE=TRUE,pathResults=pathResults)
+models <- ddd::getModel(getModel=getModel,path=pathModel,Timeresinsec=timePeriod$Timeresinsec,SAVE=TRUE,pathResults=pathResults)
 # OUTPUT: (list)
 #     - modelk
 #     - modelSoilMoisture
