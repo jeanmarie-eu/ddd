@@ -55,6 +55,9 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="news/index.html">News</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -74,17 +77,36 @@
   <div class="col-md-9">
     
 <h1 id="ddd">ddd</h1>
+<p><a href="https://travis-ci.org/nexModeling/ddd"><img src="https://travis-ci.org/nexModeling/ddd.svg?branch=master" alt="Travis-CI Build Status"></a></p>
 <p>This R-package makes it easy to run the Distance Distribution Dynamics (ddd) hydrological model. This package is based on the work of different authors:</p>
 <ul>
-<li>Skaugen and Onof (2013), DOI: 10.1002/hyp.9968</li>
-<li>Skaugen, Peerebom and Nulsson (2015), DOI: 10.1002/hyp.10315</li>
-<li>Skaugen and Weltzien (2016), DOI: 10.5194/tc-10-1947-2016</li>
+<li>Skaugen and Onof (2013), <a href="http://onlinelibrary.wiley.com/doi/10.1002/hyp.9968/abstract">DOI: 10.1002/hyp.9968</a>
+</li>
+<li>Skaugen, Peerebom and Nulsson (2015), <a href="http://onlinelibrary.wiley.com/doi/10.1002/hyp.10315/full">DOI: 10.1002/hyp.10315</a>
+</li>
+<li>Skaugen and Weltzien (2016), <a href="http://www.the-cryosphere.net/10/1947/2016/">DOI: 10.5194/tc-10-1947-2016</a>
+</li>
 </ul>
 <h2 id="installation">Installation</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("devtools")</span>
 devtools::<span class="kw">install_github</span>(<span class="st">"nexModeling/ddd"</span>)</code></pre></div>
 <h2 id="usage">Usage</h2>
-<p>More how-to&rsquo;s will be release soon on the webpage:</p>
+<p>Sofar, only a demo (/demo/test.R) might be taken as a tutorial. More how-to&rsquo;s will be release soon on the <a href="https://nexmodeling.github.io/ddd/">ddd webpage</a></p>
+<h2 id="dependencies">Dependencies</h2>
+<p>The ddd R-package works as a holding package that drives a set of packages:</p>
+<ul>
+<li><a href="https://nexmodeling.github.io/dddModel/">dddModel</a></li>
+<li><a href="https://nexmodeling.github.io/dddCelerity/">dddCelerity</a></li>
+<li><a href="https://nexmodeling.github.io/dddEvapotranspiration/">dddEvapotranspiration</a></li>
+<li><a href="https://nexmodeling.github.io/dddPrecipLZ/">dddPrecipLZ</a></li>
+<li><a href="https://nexmodeling.github.io/dddTempLZ/">dddTempLZ</a></li>
+<li><a href="https://nexmodeling.github.io/dddSnow/">dddSnow</a></li>
+<li><a href="https://nexmodeling.github.io/dddSoilMoisture/">dddSoilMoisture</a></li>
+<li><a href="https://nexmodeling.github.io/dddSoilWater/">dddSoilWater</a></li>
+<li><a href="https://nexmodeling.github.io/dddSoilDischarge/">dddSoilDischarge</a></li>
+<li><a href="https://nexmodeling.github.io/dddUH/">dddUH</a></li>
+<li><a href="https://nexmodeling.github.io/dddGroundwater/">dddGroundwater</a></li>
+</ul>
 
   </div>
 </div>
