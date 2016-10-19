@@ -6,7 +6,7 @@
 \title{Discharge at Narsjo}
 \format{A csv file}
 \source{
-\href{http://nve.no}{NVE}
+\href{http://www.nve.no}{NVE}
 }
 \description{
 Discharge at Narsjo measured by the Norwegian Water Resources and Energy Directorate

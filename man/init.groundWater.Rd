@@ -5,12 +5,20 @@
 \title{init
 The funtion initializes the main features of the groundwater:}
 \usage{
-init.groundwater(method = NULL, path = NULL, Timeresinsec = NULL,
-  UHMAD = NULL, MAD = NULL, modelArea = NULL, modelSaturation = NULL,
-  modelLayer = NULL)
+init.groundwater(method = NULL, path = NULL, Magkap = NULL, M = NULL,
+  Layers = NULL, Timeresinsec = NULL, UHMAD = NULL, MAD = NULL,
+  modelArea = NULL, modelSaturation = NULL, modelLayer = NULL)
 }
 \arguments{
 \item{method}{method for the initialization, "load", "source", "manual"}
+
+\item{path}{directory where to get the files, in used when method is "load" or "source"}
+
+\item{Magkap}{Magkap}
+
+\item{M}{Groundwater Storage Capacity (GSC)}
+
+\item{Layers}{saturation layers}
 
 \item{Timeresinsec}{time resolution of the process in second (1hour: 3600s, ... etc)}
 
@@ -25,12 +33,6 @@ list(gtcel,CapacityUpperLevel,mLam,varLam,distr)}
 
 \item{modelLayer}{list of parameters about the Layers
 list(maxL,speed,nbStepsDelay,z,distr,param,NoL)}
-
-\item{Magkap}{Magkap}
-
-\item{M}{Groundwater Storage Capacity (GSC)}
-
-\item{Layers}{saturation layers}
 }
 \description{
 init

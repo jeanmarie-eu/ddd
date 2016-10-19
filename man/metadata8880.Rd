@@ -6,7 +6,7 @@
 \title{Metadata of station no 8880}
 \format{A csv file}
 \source{
-\href{http://met.no}{met.no}
+\href{http://www.met.no}{met.no}
 }
 \description{
 Stations no 8880 is registered from the Norwegian Meteorlogical Institut
