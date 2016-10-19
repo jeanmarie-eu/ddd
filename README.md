@@ -15,4 +15,4 @@ devtools::install_github("nexModeling/ddd")
 
 ## Usage
 
-More how-to's will be release soon on the webpage: 
+More how-to's will be released soon on the [ddd webpage](https://nexmodeling.github.io/ddd).
