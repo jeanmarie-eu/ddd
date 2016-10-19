@@ -7,7 +7,7 @@ Authors@R: c(
             person("Jean-Marie", "Lepioufle", , "jm@nexmodeling.com", c("aut","cre"))
              )
 Title: Hydrological Model ddd
-Description: istance Distribution Dynamics (ddd) hydrological model.
+Description: Distance Distribution Dynamics (ddd) hydrological model.
    This package is based on:
    - Skaugen and Onof (2013), DOI: 10.1002/hyp.9968
    - Skaugen, Peerebom and Nulsson (2015), DOI: 10.1002/hyp.10315
