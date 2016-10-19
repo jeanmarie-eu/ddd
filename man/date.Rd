@@ -15,7 +15,7 @@ date(timeResolution, fromPeriod, toPeriod, format, saveDate = NULL)
 
 \item{format}{conversion into a vector "YYMMDDHH" or a matrix "YY,MM,DD,HH"}
 
-\item{savedate}{"YYYYmmddHHMMSS"}
+\item{saveDate}{"YYYYmmddHHMMSS"}
 }
 \description{
 ddd.date

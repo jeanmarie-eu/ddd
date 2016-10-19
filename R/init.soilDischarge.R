@@ -2,6 +2,8 @@
 
 #' The funtion initializes the soil discharge
 #' Unit is in m3/s
+#' @param method method for the initialization, "load", "source", "manual", "processed"
+#' @param path directory where to get the files, in used when method is "load" or "source"
 #' @param MAD Mean Annual Discharge values
 #' @param q1 first value of the runoff timeserie
 #' @param D volume of the unsaturated zone
@@ -23,18 +25,11 @@
 #' \dontrun{
 #' init.soilDischarge()
 #'}
-init.soilDischarge <-function(MAD,q1,
-                                  D,
-                                  Timeresinsec,
-                                  modelArea,
-                                  modelLayer,
-                                  modelRiver,
-                                  modelBog,
-                                  layerUH,
-                                  NoL,
-                                  UHriver){
+init.soilDischarge <-function(method=NULL,path=NULL,MAD=NULL,q1=NULL,D=NULL,Timeresinsec=NULL,
+                              modelArea=NULL,modelLayer=NULL,modelRiver=NULL,modelBog=NULL,
+                              layerUH=NULL,NoL=NULL,UHriver=NULL){
 
-  res <- dddSoilDischarge::init(MAD=MAD,q1=q1,D=D,Timeresinsec=Timeresinsec,
+  res <- dddSoilDischarge::init.soilDischarge(method=method,path=path,MAD=MAD,q1=q1,D=D,Timeresinsec=Timeresinsec,
                                modelArea=modelArea,modelLayer=modelLayer,
                                modelRiver=modelRiver,modelBog=modelBog,
                                layerUH=layerUH,NoL=NoL,UHriver=UHriver)

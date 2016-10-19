@@ -12,9 +12,9 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' init.param()
+#' getParam()
 #' }
-init.param <-function(Timeresinsec,path){
+getParam <-function(Timeresinsec,path){
    res   <- dddModel::getParam(Timeresinsec=Timeresinsec,path=path)
    return(res)
 

@@ -6,10 +6,16 @@
 The funtion initializes the soil discharge
 Unit is in m3/s}
 \usage{
-init.soilDischarge(MAD, q1, D, Timeresinsec, modelArea, modelLayer, modelRiver,
-  modelBog, layerUH, NoL, UHriver)
+init.soilDischarge(method = NULL, path = NULL, MAD = NULL, q1 = NULL,
+  D = NULL, Timeresinsec = NULL, modelArea = NULL, modelLayer = NULL,
+  modelRiver = NULL, modelBog = NULL, layerUH = NULL, NoL = NULL,
+  UHriver = NULL)
 }
 \arguments{
+\item{method}{method for the initialization, "load", "source", "manual", "processed"}
+
+\item{path}{directory where to get the files, in used when method is "load" or "source"}
+
 \item{MAD}{Mean Annual Discharge values}
 
 \item{q1}{first value of the runoff timeserie}

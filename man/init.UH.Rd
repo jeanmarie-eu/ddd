@@ -4,9 +4,14 @@
 \alias{init.UH}
 \title{Unit Hydrograph initializing}
 \usage{
-init.UH(Timeresinsec, modelLayer, modelRiver, modelMAD)
+init.UH(method = NULL, path = NULL, Timeresinsec = NULL,
+  modelLayer = NULL, modelRiver = NULL, modelMAD = NULL)
 }
 \arguments{
+\item{method}{method for the initialization, "load", "source", "processed"}
+
+\item{path}{directory where to get the files, in used when method is "load" or "source"}
+
 \item{Timeresinsec}{time resolution of the process in second (1hour: 3600s, ... etc)}
 
 \item{modelLayer}{list of parameters about the Layers

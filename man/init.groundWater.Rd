@@ -3,14 +3,15 @@
 \name{init.groundWater}
 \alias{init.groundWater}
 \title{init
-The funtion initializes the main features of the groundwater:
-- The maximum capacity of each staturation level,
-- the Groundwater Storage Capacity (GSC),
-- The saturation layers}
+The funtion initializes the main features of the groundwater:}
 \usage{
-init.groundWater(Timeresinsec, UHMAD, MAD, area, modelSaturation, modelLayer)
+init.groundWater(metho = NULL, path = NULL, Timeresinsec = NULL,
+  UHMAD = NULL, MAD = NULL, area = NULL, modelSaturation = NULL,
+  modelLayer = NULL)
 }
 \arguments{
+\item{path}{directory where to get the files, in used when method is "load" or "source"}
+
 \item{Timeresinsec}{time resolution of the process in second (1hour: 3600s, ... etc)}
 
 \item{UHMAD}{Unit Hydrograph of the Mean Annual Discharge}
@@ -24,13 +25,12 @@ list(gtcel,CapacityUpperLevel,mLam,varLam,distr)}
 
 \item{modelLayer}{list of parameters about the Layers
 list(maxL,speed,nbStepsDelay,z,distr,param,NoL)}
+
+\item{method}{method for the initialization, "load", "source", "manual", "processed"}
 }
 \description{
 init
 The funtion initializes the main features of the groundwater:
-- The maximum capacity of each staturation level,
-- the Groundwater Storage Capacity (GSC),
-- The saturation layers
 }
 \examples{
 \dontrun{

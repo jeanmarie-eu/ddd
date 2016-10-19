@@ -14,12 +14,15 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' init.getModel()
+#' getModel()
 #' }
 
-init.getModel <-function(getModel,path,Timeresinsec=NULL,SAVE=FALSE,pathResults=NULL){
+getModel <-function(getModel,path,Timeresinsec=NULL,SAVE=FALSE,pathResults="~"){
   models <- dddModel::getModel(getModel=getModel,path=path,Timeresinsec=Timeresinsec)
-  if (SAVE) do.call("save",list(obj="models", file=paste0(pathResults,"models.rda")))
+
+  pathModel <- paste0(pathResults,"model/")
+  dir.create(pathModel, showWarnings = FALSE)
+  if (SAVE) do.call("save",list(obj="models", file=paste0(pathModel,"models.rda")))
   return(models)
 
 
