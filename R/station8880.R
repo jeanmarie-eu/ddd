@@ -9,5 +9,5 @@
 #' @format A csv file
 #' @keywords datasets
 #' @references the Norwegian Meteorological Institute (met.no)
-#' @source \href{http://www.met.no}{met.no}
+#' @source \href{http://met.no}{met.no}
 NULL

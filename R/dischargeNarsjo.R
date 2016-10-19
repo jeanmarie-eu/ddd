@@ -9,6 +9,6 @@
 #' @format A csv file
 #' @keywords datasets
 #' @references the Norwegian Water Resources and Energy Directorate (NVE)
-#' @source \href{http://www.nve.no}{NVE}
+#' @source \href{http://nve.no}{NVE}
 
 NULL
