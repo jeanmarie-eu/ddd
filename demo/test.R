@@ -246,7 +246,7 @@ snowReservoir <-ddd::init.snowReservoir(method="manual",snomag=0,swe_h=0,middels
 # - snofritt
 
 # D-SOIL MOISURE
-soilMoisture <- init.soilMoisture(method="manual",waterSoil=0,waterGlaciatedSoil=0,waterGlaciers=0,Z=0)
+soilMoisture <- ddd::init.soilMoisture(method="manual",waterSoil=0,waterGlaciatedSoil=0,waterGlaciers=0,Z=0)
 # OUTPUT (list)
 # - waterSoil
 # - waterGlaciatedSoil
@@ -254,7 +254,7 @@ soilMoisture <- init.soilMoisture(method="manual",waterSoil=0,waterGlaciatedSoil
 # - Z
 
 # E- SOIL DISCHARGE: SLOPES AND BOGS
-soilDischarge <- init.soilDischarge(method="processed",
+soilDischarge <- ddd::init.soilDischarge(method="processed",
                                     MAD=MAD_ci,
                                     q1=q[1],
                                     D=D_ci,
@@ -272,18 +272,18 @@ soilDischarge <- init.soilDischarge(method="processed",
 
 
 # F- SATURATION LAYER
-ddistAll <- init.ddistAll(method= "manual",
+ddistAll <- ddd::init.ddistAll(method= "manual",
                            S     = (-1)*D_ci,   # dD/dt = -dS/dt
                            ddistx = NULL,
                            ddist  = rep(1/models$modelLayer$NoL,models$modelLayer$NoL) )
 
 
 # G- GROUNDWATER ZONE (saturated zone with volume S)
-groundwater <- init.groundWater(method="processed",
+groundwater <- ddd::init.groundwater(method="processed",
                                  Timeresinsec=timePeriod$Timeresinsec,
                                  UHMAD=UH$UHMAD,
                                  MAD=MAD_ci,
-                                 area=models$modelArea$totarea,
+                                 modelArea=models$modelArea,
                                  modelSaturation=models$modelSaturation,
                                  modelLayer=models$modelLayer)
 # OUTPUT (list)
@@ -293,7 +293,7 @@ groundwater <- init.groundWater(method="processed",
 
 
 # I- RECEIVED SOIL MOISTURE (from precipitation and melting snow and bogs)
-soilWater <- init.soilWater(method="manual",
+soilWater <- ddd::init.soilWater(method="manual",
                              Ea    = NULL,
                              G     = 0.2*groundwater$M,
                              X     = NULL,
