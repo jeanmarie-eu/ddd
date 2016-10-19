@@ -21,7 +21,7 @@
 #' init.groundWater()
 #' }
 
-init.groundWater <-function(method=NULL,path=NULL,Timeresinsec=NULL,UHMAD=NULL,MAD=NULL,modelArea=NULL,modelSaturation=NULL,modelLayer=NULL){
+init.groundwater <-function(method=NULL,path=NULL,Timeresinsec=NULL,UHMAD=NULL,MAD=NULL,modelArea=NULL,modelSaturation=NULL,modelLayer=NULL){
 
   res <- dddGroundwater::init.groundwater(method=method,path=path,Timeresinsec=Timeresinsec,UHMAD=UHMAD,MAD=MAD,modelArea=modelArea,modelSaturation=modelSaturation,modelLayer=modelLayer)
 

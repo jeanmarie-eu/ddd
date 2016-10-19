@@ -26,7 +26,7 @@ init.soilWater <-function(method=NULL,path=NULL,Ea=NULL,G=NULL,X=NULL,Eabog=NULL
                           eatemp=NULL,cea=NULL,M=NULL,D=NULL,middelsca=NULL,R=NULL,Z=NULL,Zbog=NULL){
 
    res <- dddSoilWater::init.soilWater(method=method,path=path,Ea=Ea,G=G,X=X,Eabog=Eabog,Gbog=Gbog,Xbog=Xbog,
-                             eatemp=eatemp,cea=cea,M=M,D=D,G=G,middelsca=middelsca,R=R,Z=Z,Zbog=Zbog)
+                             eatemp=eatemp,cea=cea,M=M,D=D,middelsca=middelsca,R=R,Z=Z,Zbog=Zbog)
 
    return(res)
 
