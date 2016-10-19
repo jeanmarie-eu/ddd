@@ -8,8 +8,7 @@ Unit is in m3/s}
 \usage{
 init.soilDischarge(method = NULL, path = NULL, MAD = NULL, q1 = NULL,
   D = NULL, Timeresinsec = NULL, modelArea = NULL, modelLayer = NULL,
-  modelRiver = NULL, modelBog = NULL, layerUH = NULL, NoL = NULL,
-  UHriver = NULL)
+  modelRiver = NULL, modelBog = NULL, layerUH = NULL, UHriver = NULL)
 }
 \arguments{
 \item{method}{method for the initialization, "load", "source", "manual", "processed"}
@@ -37,8 +36,6 @@ list(maxL,speed,nbStepsDelay,z,distr,param)}
 list(maxL,speed,nbStepsDelay,z,dist,param)}
 
 \item{layerUH}{Unit Hydrograph of the saturation layers}
-
-\item{NoL}{number of level zone}
 
 \item{UHriver}{Unit Hydrograp of the river}
 }

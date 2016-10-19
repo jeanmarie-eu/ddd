@@ -6,13 +6,11 @@
 The funtion initializes the main features of the groundwater:}
 \usage{
 init.groundWater(method = NULL, path = NULL, Timeresinsec = NULL,
-  UHMAD = NULL, MAD = NULL, area = NULL, modelSaturation = NULL,
+  UHMAD = NULL, MAD = NULL, modelArea = NULL, modelSaturation = NULL,
   modelLayer = NULL)
 }
 \arguments{
-\item{method}{method for the initialization, "load", "source", "manual", "processed"}
-
-\item{path}{directory where to get the files, in used when method is "load" or "source"}
+\item{method}{method for the initialization, "load", "source", "manual"}
 
 \item{Timeresinsec}{time resolution of the process in second (1hour: 3600s, ... etc)}
 
@@ -20,13 +18,19 @@ init.groundWater(method = NULL, path = NULL, Timeresinsec = NULL,
 
 \item{MAD}{value of the Mean Annual Discharge}
 
-\item{area}{in squared meters}
+\item{modelArea}{list(totarea,slopesriverarea,nobognoglacarea,bogarea)}
 
 \item{modelSaturation}{list of parameters about the saturation
 list(gtcel,CapacityUpperLevel,mLam,varLam,distr)}
 
 \item{modelLayer}{list of parameters about the Layers
 list(maxL,speed,nbStepsDelay,z,distr,param,NoL)}
+
+\item{Magkap}{Magkap}
+
+\item{M}{Groundwater Storage Capacity (GSC)}
+
+\item{Layers}{saturation layers}
 }
 \description{
 init
