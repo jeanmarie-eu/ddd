@@ -16,7 +16,6 @@ Depends:
     R (>= 3.2.5)
 Imports:
   dddModel,
-  dddCelerity,
   dddEvapotranspiration,
   dddGroundwater,
   dddUH,
@@ -29,7 +28,6 @@ Imports:
   timeManip
 Remotes:
     nexModeling/dddModel,
-    nexModeling/dddCelerity,
     nexModeling/dddEvapotranspiration,
     nexModeling/dddGroundwater,
     nexModeling/dddUH,
