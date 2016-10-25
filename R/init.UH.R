@@ -13,13 +13,15 @@
 #'  list(maxL,speed,nbStepsDelay,z,distr,param)
 #' @param modelMAD list of parameters about the Mean Annual Discharge
 #'  list(maxL,speed,nbStepsDelay,z,distr,param)
+#' @param SAVE Save the results, Boolean
+#' @param pathResults Path of the results. By default: $HOME
 #' @keywords ddd
 #' @export
 #' @examples
 #' \dontrun{
 #' init.UH()
 #' }
-init.UH <-function(method=NULL,path=NULL,Timeresinsec=NULL,modelLayer=NULL,modelRiver=NULL,modelMAD=NULL){
+init.UH <-function(method=NULL,path=NULL,Timeresinsec=NULL,modelLayer=NULL,modelRiver=NULL,modelMAD=NULL,SAVE=FALSE,pathResults="~/"){
    res   <- dddUH::init.UH(method=method,Timeresinsec=Timeresinsec,modelLayer=modelLayer,modelRiver=modelRiver,modelMAD=modelMAD)
    return(res)
 }

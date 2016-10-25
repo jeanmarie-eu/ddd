@@ -71,13 +71,13 @@ pathDischarge <- paste0(.libPaths()[1],"/ddd/data/")
 
 # PARAMETERS AND MODELS
 # How to get the models parameters
-methodParam <- "processedNVE"
-pathParam <- paste0(.libPaths()[1],"/dddModel/data/")
-fileParam <- "paramNVE.txt"
+#methodParam <- "processedNVE"
+#pathParam <- paste0(.libPaths()[1],"/dddModel/data/")
+#fileParam <- "paramNVE.txt"
 
 # How to get the model Parameters
-methodModel <- "processedNVE"
-
+methodModel <- "load"
+pathModel <- paste0(.libPaths()[1],"/dddModel/data/")
 
 # INITIAL CONDITIONS
 MAD_ci <- 2.48                   # Mean annual discharge, Measured
@@ -178,11 +178,9 @@ scaob   <- NA
 ###################################################################################################
 ###################################################################################################
 
-# GET PARAMETERS
-inputParam <- ddd::getParam(method=methodParam,path=pathParam, filename=fileParam,SAVE=TRUE,pathResults=pathResults)
 
 # GET MODELS
-models <- ddd::getModel(method=methodModel,inputParam=inputParam,Timeresinsec=timePeriod$Timeresinsec,SAVE=TRUE,pathResults=pathResults)
+models <- ddd::getModel(method=methodModel,path=pathModel,SAVE=TRUE,pathResults=pathResults)
 
 # OUTPUT: (list)
 #     - modelk
@@ -225,7 +223,7 @@ models <- ddd::getModel(method=methodModel,inputParam=inputParam,Timeresinsec=ti
 ###################################################################################################
 
 # A-UH
-UH <- ddd::init.UH(method="processed",Timeresinsec=timePeriod$Timeresinsec,modelLayer=models$modelLayer,modelRiver=models$modelRiver,modelMAD=models$modelMAD)
+UH <- ddd::init.UH(method="processed",Timeresinsec=timePeriod$Timeresinsec,modelLayer=models$modelLayer,modelRiver=models$modelRiver,modelMAD=models$modelMAD,SAVE=TRUE,pathResults=pathResults)
 # OUTPUT (list)
 # - UHriver
 # - layerUH
