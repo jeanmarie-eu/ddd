@@ -1,8 +1,8 @@
 #' Initialize information related to snow
 #'
 #' Initialize the information related to snow
-#' @param method method for the initialization, "load", "source", "manual"
-#' @param path directory where to get the files, in used when method is "load" or "source"
+#' @param method method for the initialization, "load", "manual"
+#' @param path directory where to get the files, in used when method is "load"
 #' @param isoil precipitation and/or snowmelt from the elevation zones, vector(level zone)
 #' @param gisoil glaciermelt from the elevation zones, vector(level zone)
 #' @param sca snow coverage (NEED MORE EXPLANATION)
@@ -12,6 +12,8 @@
 #' @param alfa alfa parameter i nedbor gamma fordeling (NEED MORE EXPLANATION)
 #' @param ny ny parameter i nedbor gamma fordeling (NEED MORE EXPLANATION)
 #' @param snowfree percentage of snowfree area
+#' @param SAVE Save the results, Boolean
+#' @param pathResults Path of the results. By default: $HOME
 #' @keywords ddd
 #' @export
 #' @examples
@@ -19,9 +21,9 @@
 #' init.snow()
 #' }
 
-init.snow <-function(method=NULL,path=NULL,isoil=NULL,gisoil=NULL,spd=NULL,wcd=NULL,sca=NULL,nsno=NULL,alfa=NULL,ny=NULL,snowfree=NULL){
+init.snow <-function(method=NULL,path=NULL,isoil=NULL,gisoil=NULL,spd=NULL,wcd=NULL,sca=NULL,nsno=NULL,alfa=NULL,ny=NULL,snowfree=NULL,SAVE=FALSE,pathResults="~/"){
 
-  res <- dddSnow::init.snow(method=method,path=path,isoil=isoil,gisoil=gisoil,spd=spd,wcd=wcd,sca=sca,nsno=nsno,alfa=alfa,ny=ny,snowfree=snowfree)
+  res <- dddSnow::init.snow(method=method,path=path,isoil=isoil,gisoil=gisoil,spd=spd,wcd=wcd,sca=sca,nsno=nsno,alfa=alfa,ny=ny,snowfree=snowfree,SAVE=SAVE,pathResults=pathResults)
 
   return(res)
 }
