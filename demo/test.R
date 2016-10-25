@@ -69,13 +69,23 @@ pathPrecip    <- paste0(.libPaths()[1],"/ddd/data/")
 pathTemp      <- paste0(.libPaths()[1],"/ddd/data/")
 pathDischarge <- paste0(.libPaths()[1],"/ddd/data/")
 
-# MODEL of ddd: HOW TO GET IT.
-getModel <- "build" # "load", "source"
-pathModel <- paste0(.libPaths()[1],"/dddModel/data/") # path for either the parameters or the already built model
+# PARAMETERS AND MODELS
+# How to get the models parameters
+methodParam <- "processedNVE"
+pathParam <- paste0(.libPaths()[1],"/dddModel/data/")
+fileParam <- "paramNVE.txt"
+
+# How to get the model Parameters
+methodModel <- "processedNVE"
+
 
 # INITIAL CONDITIONS
 MAD_ci <- 2.48                   # Mean annual discharge, Measured
 D_ci <-2                         # Represents the potential volume of water that is needed for complete saturation
+
+# if 1: update from sattelite derived SCA; if 0: do not
+UP <- 0
+
 
 # PATH RESULTS
 #pathResults   <- "/your/path/"
@@ -169,7 +179,14 @@ scaob   <- NA
 ###################################################################################################
 ###################################################################################################
 
+# GET PARAMETERS
+inputParam <- ddd::getParam(method=methodParam,path=pathParam, filename=fileParam,SAVE=TRUE,pathResults=pathResults)
+
 # GET MODELS
+models <- ddd::getModel(method=methodModel,inputParam=inputParam,SAVE=TRUE,pathResults=pathResults)
+
+
+
 models <- ddd::getModel(getModel=getModel,path=pathModel,Timeresinsec=timePeriod$Timeresinsec,SAVE=TRUE,pathResults=pathResults)
 # OUTPUT: (list)
 #     - modelk

@@ -1,15 +1,15 @@
 #' Get the models to run the hydrological model
 #'
-#' Get all the models
-#' Three options:
+#' Get all the models to run ddd
+#' Two options:
 #' - build from a set of parameters
 #' - load from a rda file
-#' - load from a R-file
-#' @param getModel method to get the model parameters ("build", "load" or "source")
-#' @param path directory where to get the files
-#' @param Timeresinsec time resolution of the process in second (1hour: 3600s, ... etc)
-#' @param SAVE Boolean to save the current model
-#' @param pathResults path to save the results
+#' @param method Method to get the model parameters: "buildNVE" or "load"
+#' @param path Directory where to get the files
+#' @param inputParam List input parameters
+#' @param SAVE Save the results, Boolean
+#' @param pathResults Path of the results. By default: $HOME
+#' @return a list of all the models used to run ddd
 #' @keywords ddd
 #' @export
 #' @examples
@@ -17,12 +17,8 @@
 #' getModel()
 #' }
 
-getModel <-function(getModel,path,Timeresinsec=NULL,SAVE=FALSE,pathResults="~"){
-  models <- dddModel::getModel(getModel=getModel,path=path,Timeresinsec=Timeresinsec)
-
-  pathModel <- paste0(pathResults,"model/")
-  dir.create(pathModel, showWarnings = FALSE)
-  if (SAVE) do.call("save",list(obj="models", file=paste0(pathModel,"models.rda")))
+getModel <-function(method=NULL,path=NULL,inputParam=NULL,SAVE=FALSE,pathResults="~/"){
+  models <- dddModel::getModel(method=method,path=path,inputParam=inputParam,SAVE=SAVE,pathResults=pathResults)
   return(models)
 
 
