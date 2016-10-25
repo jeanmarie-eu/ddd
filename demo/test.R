@@ -183,7 +183,7 @@ scaob   <- NA
 inputParam <- ddd::getParam(method=methodParam,path=pathParam, filename=fileParam,SAVE=TRUE,pathResults=pathResults)
 
 # GET MODELS
-models <- ddd::getModel(method=methodModel,inputParam=inputParam,Timeresinsec=Timeresinsec,SAVE=TRUE,pathResults=pathResults)
+models <- ddd::getModel(method=methodModel,inputParam=inputParam,Timeresinsec=timePeriod$Timeresinsec,SAVE=TRUE,pathResults=pathResults)
 
 # OUTPUT: (list)
 #     - modelk
