@@ -4,26 +4,30 @@
 \alias{getModel}
 \title{Get the models to run the hydrological model}
 \usage{
-getModel(getModel, path, Timeresinsec = NULL, SAVE = FALSE,
-  pathResults = "~")
+getModel(method = NULL, path = NULL, inputParam = NULL,
+  Timeresinsec = NULL, SAVE = FALSE, pathResults = "~/")
 }
 \arguments{
-\item{getModel}{method to get the model parameters ("build", "load" or "source")}
+\item{method}{Method to get the model parameters: "buildNVE" or "load"}
 
-\item{path}{directory where to get the files}
+\item{path}{Directory where to get the files}
 
-\item{Timeresinsec}{time resolution of the process in second (1hour: 3600s, ... etc)}
+\item{inputParam}{List input parameters}
 
-\item{SAVE}{Boolean to save the current model}
+\item{Timeresinsec}{Time resolution of the process in second (1hour: 3600s, ... etc)}
 
-\item{pathResults}{path to save the results}
+\item{SAVE}{Save the results, Boolean}
+
+\item{pathResults}{Path of the results. By default: $HOME}
+}
+\value{
+a list of all the models used to run ddd
 }
 \description{
-Get all the models
-Three options:
+Get all the models to run ddd
+Two options:
 - build from a set of parameters
 - load from a rda file
-- load from a R-file
 }
 \examples{
 \dontrun{

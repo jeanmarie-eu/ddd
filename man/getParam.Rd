@@ -2,24 +2,158 @@
 % Please edit documentation in R/getParam.R
 \name{getParam}
 \alias{getParam}
-\title{Get and process the parameters}
+\title{Get the parameters}
 \usage{
-getParam(Timeresinsec, path)
+getParam(method = NULL, path = NULL, filename = NULL, SAVE = FALSE,
+  pathResults = "~/", Timeresinsec = NULL, catchment = NULL,
+  nbLevelZone = NULL, Ws = NULL, Tlr = NULL, Plr = NULL, Pc = NULL,
+  Sc = NULL, TX = NULL, TS = NULL, CX = NULL, CGLAC = NULL,
+  CFR = NULL, NoL = NULL, cea = NULL, R = NULL, Gsh = NULL,
+  Gsc = NULL, gtcel = NULL, GshInt = NULL, GscInt = NULL, CV = NULL,
+  a0 = NULL, d = NULL, rv = NULL, MAD = NULL, hfelt = NULL,
+  maxLbog = NULL, midLbog = NULL, bogfrac = NULL, zsoil = NULL,
+  zbog = NULL, midFL = NULL, stdFL = NULL, maxFL = NULL, maxDL = NULL,
+  midDL = NULL, glacfrac = NULL, midGl = NULL, stdGl = NULL,
+  maxGl = NULL, hfeltmid = NULL, totarea = NULL, midmetp = NULL,
+  midmett = NULL, nobognoglacarea = NULL, slopesriverarea = NULL,
+  bogarea = NULL, glacarea = NULL, elevarea = NULL, gca = NULL,
+  soilca = NULL, gwgt = NULL, swgt = NULL, mLam = NULL, varLam = NULL,
+  cvLam = NULL, meanIntk = NULL, unitsnow = NULL)
 }
 \arguments{
-\item{Timeresinsec}{time resolution of the process in second (1hour: 3600s, ... etc)}
+\item{method}{method for getting parameters, "manual", "load", "processedNVE"}
 
-\item{path}{path of the directory where to find the two files}
+\item{path}{Directory where to get the files}
+
+\item{filename}{Filename (path included) of the file to be read}
+
+\item{SAVE}{Save the results, Boolean}
+
+\item{pathResults}{Path of the results. By default: $HOME}
+
+\item{Timeresinsec}{Time resolution of the process in second (1hour: 3600s, ... etc)}
+
+\item{catchment}{Name of the catchment as string of character}
+
+\item{nbLevelZone}{Number of level zone}
+
+\item{Ws}{Max Liquid water content in snow. Percentage of Snow water equivalent, SWE}
+
+\item{Tlr}{Temperature gradient. Degrees pr 100 meters}
+
+\item{Plr}{Precipitation gradient. Fraction pr 100 meters}
+
+\item{Pc}{Liquid precpititan correction}
+
+\item{Sc}{Solid precpititan correction}
+
+\item{TX}{Threshold temp for snow/rain}
+
+\item{TS}{Threshold temp for snowmelt}
+
+\item{CX}{Degree day factor for snowmelt. Unit: mm/degree/day}
+
+\item{CGLAC}{Degree day factor for glacial melt}
+
+\item{CFR}{Factor for refreezing. Unit:mm/degree/day}
+
+\item{NoL}{Number of saturation layers}
+
+\item{cea}{Degree day factor for evpotranspiration. Unit:mm/degree/day}
+
+\item{R}{Ratio defining field capacity: fracion of D}
+
+\item{Gsh}{Shape parameter of the Gamma distribution of celerities}
+
+\item{Gsc}{Scale parameter of the Gamma distribution of celerities}
+
+\item{gtcel}{Quantile in celerity distribution for overland flow}
+
+\item{GshInt}{Shape pararameter of the Gamma distribution of Lambda}
+
+\item{GscInt}{Scale pararameter of the Gamma distribution of Lambda}
+
+\item{CV}{CV for log normal snow distribution}
+
+\item{a0}{Scale parameter of unit precipitation.}
+
+\item{d}{Decorrelation length of spatial precipitation.}
+
+\item{rv}{Celerity for river flow. Unit: m/s}
+
+\item{MAD}{Mean Annual Discharge}
+
+\item{hfelt}{Mean elevation of catchment}
+
+\item{maxLbog}{Max distance bogs-river}
+
+\item{midLbog}{Mean distance bogs-river}
+
+\item{bogfrac}{Areal fraction of bogs}
+
+\item{zsoil}{arealfraction of DD for soils}
+
+\item{zbog}{arealfraction of DD for bogs}
+
+\item{midFL}{Mean distance from the river network}
+
+\item{stdFL}{Standard deviation of distance from the river network}
+
+\item{maxFL}{Max distance from the river network}
+
+\item{maxDL}{Max distance of soil point to the river network}
+
+\item{midDL}{Mean distance  of soil point to the river network}
+
+\item{glacfrac}{Glacier fraction}
+
+\item{midGl}{Mean distance of glacier point to the river network}
+
+\item{stdGl}{Standard deviation of distance of glacier point to the river network}
+
+\item{maxGl}{Max distance of glacier point to the river network}
+
+\item{hfeltmid}{Mean elevation of catchment}
+
+\item{totarea}{Area in m2}
+
+\item{midmetp}{Mean elevation precipitation meteorological station}
+
+\item{midmett}{Mean elevation temperature meteorological station}
+
+\item{nobognoglacarea}{Area without bog area and glaciated area neither in m2}
+
+\item{slopesriverarea}{Area in which we have hillslope process and rivernetwork processes. Unit:m2}
+
+\item{bogarea}{Bog area. Unit: in m2}
+
+\item{glacarea}{Glaciated area. Unit: m2}
+
+\item{elevarea}{Area for each level zone. Unit: m2}
+
+\item{gca}{fraction of glacier pr elevation zone, fraction of glacier covered area pr elevation zone}
+
+\item{soilca}{1-gca}
+
+\item{gwgt}{Fraction of glaciated area pr elevation zone in relation to total glaciated area}
+
+\item{swgt}{Fraction of soils and bogs in each elevation zone in relation to total soil and bog area}
+
+\item{mLam}{mean Lambda}
+
+\item{varLam}{variance Lambda}
+
+\item{cvLam}{CV Lambda}
+
+\item{meanIntk}{Average speed calculated with Integrated Celerity}
+
+\item{unitsnow}{Snow unit}
 }
 \value{
-The output is a list of processed parameters to be build the model
+The output is a list of processed parameters to build models
 }
 \description{
-Get and process the parameters from a R-source file.
-Two files are required:
-- one for the calibrated parameters (paramCalibrated.R)
-- one for the GIS-related parameters (paramGIS.R)
-The files are present in the data folder of this package.
+Get and process, if needed, the parameters to build the ddd models.
 }
 \examples{
 \dontrun{
