@@ -5,7 +5,8 @@
 \title{Unit Hydrograph initializing}
 \usage{
 init.UH(method = NULL, path = NULL, Timeresinsec = NULL,
-  modelLayer = NULL, modelRiver = NULL, modelMAD = NULL)
+  modelLayer = NULL, modelRiver = NULL, modelMAD = NULL, SAVE = FALSE,
+  pathResults = "~/")
 }
 \arguments{
 \item{method}{method for the initialization, "load", "source", "processed"}
@@ -22,6 +23,10 @@ list(maxL,speed,nbStepsDelay,z,distr,param)}
 
 \item{modelMAD}{list of parameters about the Mean Annual Discharge
 list(maxL,speed,nbStepsDelay,z,distr,param)}
+
+\item{SAVE}{Save the results, Boolean}
+
+\item{pathResults}{Path of the results. By default: $HOME}
 }
 \description{
 The funtion initialize the main Unit Hydrographs:
