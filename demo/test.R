@@ -84,11 +84,10 @@ MAD_ci <- 2.48                   # Mean annual discharge, Measured
 D_ci <-2                         # Represents the potential volume of water that is needed for complete saturation
 
 # if 1: update from sattelite derived SCA; if 0: do not
-UP <- 0
+#UP <- 0 frozen to 0
 
 
 # PATH RESULTS
-#pathResults   <- "/your/path/"
 pathResults   <- "~/"
 pathResults   <- paste0(pathResults,"dddRes_",format(Sys.time(), "%Y-%m-%d-%H-%M",tz="GMT"),"/")
 dir.create(pathResults, showWarnings = FALSE)
