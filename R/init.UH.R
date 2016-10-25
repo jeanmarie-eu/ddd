@@ -22,6 +22,6 @@
 #' init.UH()
 #' }
 init.UH <-function(method=NULL,path=NULL,Timeresinsec=NULL,modelLayer=NULL,modelRiver=NULL,modelMAD=NULL,SAVE=FALSE,pathResults="~/"){
-   res   <- dddUH::init.UH(method=method,Timeresinsec=Timeresinsec,modelLayer=modelLayer,modelRiver=modelRiver,modelMAD=modelMAD)
+   res   <- dddUH::init.UH(method=method,Timeresinsec=Timeresinsec,modelLayer=modelLayer,modelRiver=modelRiver,modelMAD=modelMAD,SAVE=SAVE,pathResults=pathResults)
    return(res)
 }
