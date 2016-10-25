@@ -20,7 +20,7 @@
 #' @keywords ddd
 #' @export
 #' @examples
-# \dontrun{
+#' \dontrun{
 #' do.soilDischarge()
 #' }
 
