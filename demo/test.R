@@ -183,11 +183,8 @@ scaob   <- NA
 inputParam <- ddd::getParam(method=methodParam,path=pathParam, filename=fileParam,SAVE=TRUE,pathResults=pathResults)
 
 # GET MODELS
-models <- ddd::getModel(method=methodModel,inputParam=inputParam,SAVE=TRUE,pathResults=pathResults)
+models <- ddd::getModel(method=methodModel,inputParam=inputParam,Timeresinsec=Timeresinsec,SAVE=TRUE,pathResults=pathResults)
 
-
-
-models <- ddd::getModel(getModel=getModel,path=pathModel,Timeresinsec=timePeriod$Timeresinsec,SAVE=TRUE,pathResults=pathResults)
 # OUTPUT: (list)
 #     - modelk
 #     - modelSoilMoisture
