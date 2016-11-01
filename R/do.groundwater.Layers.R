@@ -16,6 +16,6 @@
 #' do.groundwater.Layers()
 #' }
 do.groundwater.Layers <-function(NoL,Layers,ddist,X,layerUH,nbStepsDelay){
-  res <- dddGroundwater::grd.layers(NoL=NoL,Layers=Layers,ddist=ddist,X=X,layerUH=layerUH,nbStepsDelay=nbStepsDelay)
+  res <- dddGroundwater::stateX.groundwater(NoL=NoL,Layers=Layers,ddist=ddist,X=X,layerUH=layerUH,nbStepsDelay=nbStepsDelay)
   return(res)
 }

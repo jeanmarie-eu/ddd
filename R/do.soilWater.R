@@ -24,6 +24,6 @@
 #' }
 
 do.soilWater <- function(eatemp,cea,M,D,G,middelsca,R,Z,Gbog,Zbog){
-  res <- dddSoilWater::stateX(eatemp=eatemp,cea=cea,M=M,D=D,G=G,middelsca=middelsca,R=R,Z=Z,Gbog=Gbog,Zbog=Zbog)
+  res <- dddSoilWater::stateX.soilWater(eatemp=eatemp,cea=cea,M=M,D=D,G=G,middelsca=middelsca,R=R,Z=Z,Gbog=Gbog,Zbog=Zbog)
   return(res)
 }

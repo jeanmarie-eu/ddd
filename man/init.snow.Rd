@@ -9,9 +9,9 @@ init.snow(method = NULL, path = NULL, isoil = NULL, gisoil = NULL,
   ny = NULL, snowfree = NULL)
 }
 \arguments{
-\item{method}{method for the initialization, "load", "source", "manual"}
+\item{method}{method for the initialization, "load", "manual"}
 
-\item{path}{directory where to get the files, in used when method is "load" or "source"}
+\item{path}{directory where to get the files, in used when method is "load"}
 
 \item{isoil}{precipitation and/or snowmelt from the elevation zones, vector(level zone)}
 

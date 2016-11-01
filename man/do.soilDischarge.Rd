@@ -39,5 +39,10 @@ The function \code{stateX()} process the soil discharge:
 3- process the accumulated discharge with a dynamic
 Unit is in m3/s
 }
+\examples{
+\dontrun{
+do.soilDischarge()
+}
+}
 \keyword{ddd}
 

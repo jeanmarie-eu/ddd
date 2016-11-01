@@ -21,6 +21,6 @@
 #' do.soilMoisture()
 #' }
 do.soilMoisture <- function(isoil,gisoil,bisoil=NULL,swgt,gwgt,snowfree,glacfrac) {
-  res <- dddSoilMoisture::stateX(isoil=isoil,gisoil=gisoil,bisoil=bisoil,swgt=swgt,gwgt=gwgt,snowfree=snowfree,glacfrac=glacfrac)
+  res <- dddSoilMoisture::stateX.soilMoisture(isoil=isoil,gisoil=gisoil,bisoil=bisoil,swgt=swgt,gwgt=gwgt,snowfree=snowfree,glacfrac=glacfrac)
   return(res)
 }

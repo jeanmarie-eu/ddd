@@ -8,9 +8,9 @@ init.snowReservoir(method = NULL, path = NULL, snomag = NULL,
   swe_h = NULL, middelsca = NULL, snofritt = NULL)
 }
 \arguments{
-\item{method}{method for the initialization, "load", "source", "manual"}
+\item{method}{method for the initialization, "load", "manual"}
 
-\item{path}{directory where to get the files, in used when method is "load" or "source"}
+\item{path}{directory where to get the files, in used when method is "load"}
 
 \item{snomag}{snow mag, NEED MORE EXPLANATION}
 

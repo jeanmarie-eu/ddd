@@ -11,6 +11,6 @@
 #' }
 
 do.evapotranspiration <- function(htemp,sca) {
-  res <- dddEvapotranspiration::stateX(htemp=htemp,sca=sca)
+  res <- dddEvapotranspiration::stateX.evapotranspiration(htemp=htemp,sca=sca)
   return(res)
 }

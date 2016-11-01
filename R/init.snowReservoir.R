@@ -1,8 +1,8 @@
 #' Initialize information related to snow
 #'
 #' Initialize the information related to snow
-#' @param method method for the initialization, "load", "source", "manual"
-#' @param path directory where to get the files, in used when method is "load" or "source"
+#' @param method method for the initialization, "load", "manual"
+#' @param path directory where to get the files, in used when method is "load"
 #' @param snomag snow mag, NEED MORE EXPLANATION
 #' @param swe_h swe_h, NEED MORE EXPLANATION
 #' @param middelsca averaged sca

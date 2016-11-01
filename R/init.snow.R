@@ -1,8 +1,8 @@
 #' Initialize information related to snow
 #'
 #' Initialize the information related to snow
-#' @param method method for the initialization, "load", "source", "manual"
-#' @param path directory where to get the files, in used when method is "load" or "source"
+#' @param method method for the initialization, "load", "manual"
+#' @param path directory where to get the files, in used when method is "load"
 #' @param isoil precipitation and/or snowmelt from the elevation zones, vector(level zone)
 #' @param gisoil glaciermelt from the elevation zones, vector(level zone)
 #' @param sca snow coverage (NEED MORE EXPLANATION)

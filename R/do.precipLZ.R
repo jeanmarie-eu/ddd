@@ -12,6 +12,6 @@
 #' }
 
 do.precipLZ <- function(v,modelPrecipLZ) {
-  res <- dddPrecipLZ::stateX(v=v,modelPrecipLZ=modelPrecipLZ)
+  res <- dddPrecipLZ::stateX.precipLZ(v=v,modelPrecipLZ=modelPrecipLZ)
   return(res)
 }
