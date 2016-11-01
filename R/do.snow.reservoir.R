@@ -10,6 +10,6 @@
 #' }
 
 do.snow.reservoir <- function(snow) {
-  res <- dddSnow::reservoir(snow=snow)
+  res <- dddSnow::stateX.snowReservoir(snow=snow)
   return(res)
 }

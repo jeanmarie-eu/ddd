@@ -17,6 +17,6 @@
 #' }
 
 do.snow <- function(htempX,hprecipX,scaobX,snowX,modelSnow,modelPrecipLZ) {
-  res <- dddSnow::stateX(htempX=htempX,hprecipX=hprecipX,scaobX=scaobX,snowX=snowX,modelSnow=modelSnow,modelPrecipLZ=modelPrecipLZ)
+  res <- dddSnow::stateX.snow(htempX=htempX,hprecipX=hprecipX,scaobX=scaobX,snowX=snowX,modelSnow=modelSnow,modelPrecipLZ=modelPrecipLZ)
   return(res)
 }

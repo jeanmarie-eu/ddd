@@ -12,8 +12,6 @@
 #' @param alfa alfa parameter i nedbor gamma fordeling (NEED MORE EXPLANATION)
 #' @param ny ny parameter i nedbor gamma fordeling (NEED MORE EXPLANATION)
 #' @param snowfree percentage of snowfree area
-#' @param SAVE Save the results, Boolean
-#' @param pathResults Path of the results. By default: $HOME
 #' @keywords ddd
 #' @export
 #' @examples
@@ -21,9 +19,9 @@
 #' init.snow()
 #' }
 
-init.snow <-function(method=NULL,path=NULL,isoil=NULL,gisoil=NULL,spd=NULL,wcd=NULL,sca=NULL,nsno=NULL,alfa=NULL,ny=NULL,snowfree=NULL,SAVE=FALSE,pathResults="~/"){
+init.snow <-function(method=NULL,path=NULL,isoil=NULL,gisoil=NULL,spd=NULL,wcd=NULL,sca=NULL,nsno=NULL,alfa=NULL,ny=NULL,snowfree=NULL){
 
-  res <- dddSnow::init.snow(method=method,path=path,isoil=isoil,gisoil=gisoil,spd=spd,wcd=wcd,sca=sca,nsno=nsno,alfa=alfa,ny=ny,snowfree=snowfree,SAVE=SAVE,pathResults=pathResults)
+  res <- dddSnow::init.snow(method=method,path=path,isoil=isoil,gisoil=gisoil,spd=spd,wcd=wcd,sca=sca,nsno=nsno,alfa=alfa,ny=ny,snowfree=snowfree)
 
   return(res)
 }

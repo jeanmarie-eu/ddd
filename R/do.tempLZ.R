@@ -12,6 +12,6 @@
 #' }
 
 do.tempLZ <- function(v,modelTempLZ) {
-  res <- dddTempLZ::stateX(v=v,modelTempLZ=modelTempLZ)
+  res <- dddTempLZ::stateX.tempLZ(v=v,modelTempLZ=modelTempLZ)
   return(res)
 }

@@ -7,8 +7,6 @@
 #' @param swe_h swe_h, NEED MORE EXPLANATION
 #' @param middelsca averaged sca
 #' @param snofritt snowfree, NEED MORE EXPLANATION
-#' @param SAVE Save the results, Boolean
-#' @param pathResults Path of the results. By default: $HOME
 #' @keywords ddd
 #' @export
 #' @examples
@@ -16,9 +14,9 @@
 #' init.snowReservoir()
 #' }
 
-init.snowReservoir <-function(method=NULL,path=NULL,snomag=NULL,swe_h=NULL,middelsca=NULL,snofritt=NULL,SAVE=FALSE,pathResults="~/"){
+init.snowReservoir <-function(method=NULL,path=NULL,snomag=NULL,swe_h=NULL,middelsca=NULL,snofritt=NULL){
 
-  res <- dddSnow::init.snowReservoir(method=method,snomag=snomag,swe_h=swe_h,middelsca=middelsca,snofritt=snofritt,SAVE=SAVE,pathResults=pathResults)
+  res <- dddSnow::init.snowReservoir(method=method,snomag=snomag,swe_h=swe_h,middelsca=middelsca,snofritt=snofritt)
 
   return(res)
 }

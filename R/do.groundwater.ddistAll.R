@@ -16,6 +16,6 @@
 #' do.groundwater.ddistAll()
 #' }
 do.groundwater.ddistAll <-function(Layers,Magkap,nbStepsDelay,X){
-  res <- dddGroundwater::ddistAll(Layers=Layers,Magkap=Magkap,nbStepsDelay=nbStepsDelay,X=X)
+  res <- dddGroundwater::stateX.ddistAll(Layers=Layers,Magkap=Magkap,nbStepsDelay=nbStepsDelay,X=X)
   return(res)
 }

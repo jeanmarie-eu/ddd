@@ -35,7 +35,7 @@ do.soilDischarge <-function(Timeresinsec,
                              areabog,
                              qsimX) {
 
-  res <- dddSoilDischarge::stateX(Timeresinsec=Timeresinsec,layerUH=layerUH,ddist=ddist,UHriver=UHriver,waterContent=waterContent,
+  res <- dddSoilDischarge::stateX.soilDischarge(Timeresinsec=Timeresinsec,layerUH=layerUH,ddist=ddist,UHriver=UHriver,waterContent=waterContent,
                                   area=area,modelBog=modelBog,waterContentBog=waterContentBog,areabog=areabog,
                                   qsimX=qsimX)
   return(res)
