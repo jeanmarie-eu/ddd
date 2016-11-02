@@ -22,8 +22,8 @@ ddd.date
 }
 \examples{
 res <- date(timeResolution="hourly",
-            fromPeriod="20150215",
-            toPeriod="20150218",
+            fromPeriod="2015021500",
+            toPeriod="2015021823",
             format="YY,MM,DD,HH")
 head(res)
 }
