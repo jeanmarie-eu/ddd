@@ -52,9 +52,10 @@ library(ddd)
 ###################################################################################################
 
 # PERIOD OF SIMULATION
-fromPeriod="20160802"
-toPeriod="20160929"
 timeResolution="hourly" #"daily", "three-hourly", "hourly",...
+fromPeriod="2016080200"
+toPeriod="2016092923"
+
 # WARNING:
 # So far the timeResolution and the preiod of simulation have to match
 # the ones from the observations
@@ -268,7 +269,7 @@ soilMoisture <- ddd::init.soilMoisture(method="manual",waterSoil=0,waterGlaciate
 
 # E- SOIL DISCHARGE: SLOPES AND BOGS
 soilDischarge <- ddd::init.soilDischarge(method="processed",
-                                    MAD=MAD_ci,
+                                    MAD=models$modelSoilDischarge$MAD,
                                     q1=q[1],
                                     D=D_ci,
                                     Timeresinsec=timePeriod$Timeresinsec,
