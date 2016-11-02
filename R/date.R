@@ -27,7 +27,10 @@ date <-function(timeResolution,fromPeriod,toPeriod,format,saveDate=NULL){
      saveDatePOSIXct <- base::strptime(saveDate,"%Y%m%d%H",tz="GMT")
      indiceSave <- c()
      for (i in 1:length(saveDate)){
-       indiceSave <- c(indiceSave,which(seqPeriod==saveDatePOSIXct))
+       if (length(which(seqPeriod==saveDatePOSIXct))) {
+         indiceSave <- c(indiceSave,which(seqPeriod==saveDatePOSIXct))
+       } else indiceSave <- c(indiceSave,-1)
+
      }
    } else indiceSave <- NULL
 
