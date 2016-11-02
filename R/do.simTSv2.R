@@ -49,15 +49,14 @@ if ( (!is.null(timePeriod)) && (!is.null(q)) && (!is.null(precip)) &&
      (!is.null(groundwater)) && (!is.null(models)) && (!is.null(pathResults))
      ) {
 
-  # simulation and layers to be recorded
+  # simulation to be recorded
   simresult<-c()
-  Layersres<-array(0,dim=c(timePeriod$nbStep,models$modelLayer$NoL,models$modelLayer$nbStepsDelay[models$modelLayer$NoL]))
 
   #for each timesteps of the period of simulation
   for (i in 1:timePeriod$nbStep){
 
      # Input variables
-     hprecip <- precip[i,]
+     hprecip <- (precip[i,])
      htemp   <- temp[i,]
 
      if (!is.na(htemp) && (!is.na(hprecip)) ){
@@ -128,9 +127,6 @@ if ( (!is.null(timePeriod)) && (!is.null(q)) && (!is.null(precip)) &&
                             (soilMoisture$waterGlaciatedSoil+soilMoisture$waterGlaciers)
                           ))
 
-       Layersres[i,,] <- groundwater$Layers
-
-
      } else {
 
        # WARNING:
@@ -139,8 +135,6 @@ if ( (!is.null(timePeriod)) && (!is.null(q)) && (!is.null(precip)) &&
                           c(timePeriod$dateTS[i,1],timePeriod$dateTS[i,2],timePeriod$dateTS[i,3],timePeriod$dateTS[i,4],
                             NA,NA,q[i],NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA)
                           )
-
-       Layersres[i,,] <- matrix(NA,models$modelLayer$NoL,models$modelLayer$nbStepsDelay[models$modelLayer$NoL])
 
      }
 
@@ -160,11 +154,8 @@ if ( (!is.null(timePeriod)) && (!is.null(q)) && (!is.null(precip)) &&
   }
   colnames(simresult)<-c("year","month","day","hour","mhprec","mhtemp","qobs","qsim","middelsca","snowmag","M-D","D","G","Ea","X","Gbog","Eabog","Xbog","Z","waterGlacier","waterGSoilAndGlac")
   write.csv(simresult, file = paste0(pathResults,"simulation.csv"),row.names = FALSE)
-  write.csv(Layersres, file = paste0(pathResults,"Layersres.csv"),row.names = FALSE)
 
-  results <- list(simulation = simresult,
-                  Layers     = Layersres)
-
+  results <- list(simulation = simresult)
 
     } else stop("NULL arguments in parameters")
 
