@@ -138,17 +138,20 @@ if ( (!is.null(timePeriod)) && (!is.null(q)) && (!is.null(precip)) &&
 
      }
 
-     if (i == timePeriod$indiceSave) {
-       pathDate <- paste0(pathResults,saveDate,"/")
-       dir.create(paste0(pathResults,saveDate,"/"), showWarnings = FALSE)
-       do.call("save", list(obj="snow", file=paste0(pathDate,"snow.rda")))
-       do.call("save", list(obj="snowReservoir", file=paste0(pathDate,"snowReservoir.rda")))
-       do.call("save", list(obj="soilMoisture", file=paste0(pathDate,"soilMoisture.rda")))
-       do.call("save", list(obj="soilWater", file=paste0(pathDate,"soilWater.rda")))
-       do.call("save", list(obj="soilDischarge", file=paste0(pathDate,"soilDischarge.rda")))
-       do.call("save", list(obj="ddistAll", file=paste0(pathDate,"ddistAll.rda")))
-       do.call("save", list(obj="groundwater", file=paste0(pathDate,"groundwater.rda")))
+     if (!is.null(timePeriod$indiceSave)) {
+       if (i == timePeriod$indiceSave) {
+         pathDate <- paste0(pathResults,saveDate,"/")
+         dir.create(paste0(pathResults,saveDate,"/"), showWarnings = FALSE)
+         do.call("save", list(obj="snow", file=paste0(pathDate,"snow.rda")))
+         do.call("save", list(obj="snowReservoir", file=paste0(pathDate,"snowReservoir.rda")))
+         do.call("save", list(obj="soilMoisture", file=paste0(pathDate,"soilMoisture.rda")))
+         do.call("save", list(obj="soilWater", file=paste0(pathDate,"soilWater.rda")))
+         do.call("save", list(obj="soilDischarge", file=paste0(pathDate,"soilDischarge.rda")))
+         do.call("save", list(obj="ddistAll", file=paste0(pathDate,"ddistAll.rda")))
+         do.call("save", list(obj="groundwater", file=paste0(pathDate,"groundwater.rda")))
+       }
      }
+
 
 
   }
