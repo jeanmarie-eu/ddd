@@ -24,13 +24,13 @@
 
 ddd <- function(fromPeriod=NULL,toPeriod=NULL,timeResolution=NULL,catchment="catchment",pathData=NULL,fileData=NULL,pathParam=NULL,fileParam=NULL,methodParam="processedNVE",methodModel="processedNVE",pathResults="~/",D_ci=2,saveDate=NULL,FIGURE=FALSE){
 
-  if ( (!is.null(fromPeriod)) &&
-       (!is.null(toPeriod)) &&
-       (!is.null(timeResolution)) &&
-       (!is.null(pathData)) &&
-       (!is.null(fileData)) &&
-       (!is.null(pathParam)) &&
-       (!is.null(fileParam)) ) {
+  if ( (is.null(fromPeriod)) &&
+       (is.null(toPeriod)) &&
+       (is.null(timeResolution)) &&
+       (is.null(pathData)) &&
+       (is.null(fileData)) &&
+       (is.null(pathParam)) &&
+       (is.null(fileParam)) ) {
          stop("Error: arguments 'fromPeriod','toPeriod','timeResolution','pathData','fileData','pathParam','fielParam' must be provided")
   } else {
 
