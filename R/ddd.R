@@ -34,7 +34,7 @@ ddd <- function(fromPeriod=NULL,toPeriod=NULL,timeResolution=NULL,catchment="cat
          stop("Error: arguments 'fromPeriod','toPeriod','timeResolution','pathData','fileData','pathParam','fielParam' must be provided")
   } else {
 
-     pathResults <- normalizePath(file.path(pathResults),mustWork = FALSE)
+     pathResults <- normalizePath(file.path(pathResults,paste0("dddRes_",format(Sys.time(), "%Y-%m-%d-%H-%M",tz="GMT"))),mustWork = FALSE)
      dir.create(pathResults, showWarnings = FALSE, recursive = TRUE)
 
      ###################################################################################################
