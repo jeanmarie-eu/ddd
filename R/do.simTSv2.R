@@ -155,7 +155,8 @@ if ( (!is.null(timePeriod)) && (!is.null(q)) && (!is.null(precip)) &&
 
   }
   colnames(simresult)<-c("year","month","day","hour","mhprec","mhtemp","qobs","qsim","middelsca","snowmag","M-D","D","G","Ea","X","Gbog","Eabog","Xbog","Z","waterGlacier","waterGSoilAndGlac")
-  write.csv(simresult, file = normalizePath(file.path(pathResults,"simulation.csv"),row.names = FALSE)
+  csv_eol <- ifelse(grepl("mingw", R.Version()$platform), "\n", "\r\n")
+  write.csv(simresult, file = normalizePath(file.path(pathResults,"simulation.csv")),row.names = FALSE,eol=csv_eol)
 
   results <- list(simulation = simresult)
 
