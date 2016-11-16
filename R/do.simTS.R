@@ -48,9 +48,8 @@ if ( (!is.null(timePeriod)) && (!is.null(q)) && (!is.null(precip)) &&
      (!is.null(groundwater)) && (!is.null(models)) && (!is.null(pathResults))
      ) {
 
-  # simulation and layers to be recorded
+  # simulation to be recorded
   simresult<-c()
-  Layersres<-array(0,dim=c(timePeriod$nbStep,models$modelLayer$NoL,models$modelLayer$nbStepsDelay[models$modelLayer$NoL]))
 
   #for each timesteps of the period of simulation
   for (i in 1:timePeriod$nbStep){
@@ -127,9 +126,6 @@ if ( (!is.null(timePeriod)) && (!is.null(q)) && (!is.null(precip)) &&
                             (soilMoisture$waterGlaciatedSoil+soilMoisture$waterGlaciers)
                           ))
 
-       Layersres[i,,] <- groundwater$Layers
-
-
      } else {
 
        # WARNING:
@@ -139,30 +135,28 @@ if ( (!is.null(timePeriod)) && (!is.null(q)) && (!is.null(precip)) &&
                             NA,NA,q[i],NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA)
                           )
 
-       Layersres[i,,] <- matrix(NA,models$modelLayer$NoL,models$modelLayer$nbStepsDelay[models$modelLayer$NoL])
-
      }
 
-     if (i == timePeriod$indiceSave) {
-       pathDate <- paste0(pathResults,saveDate,"/")
-       dir.create(paste0(pathResults,saveDate,"/"), showWarnings = FALSE)
-       do.call("save", list(obj="snow", file=paste0(pathDate,"snow.rda")))
-       do.call("save", list(obj="snowReservoir", file=paste0(pathDate,"snowReservoir.rda")))
-       do.call("save", list(obj="soilMoisture", file=paste0(pathDate,"soilMoisture.rda")))
-       do.call("save", list(obj="soilWater", file=paste0(pathDate,"soilWater.rda")))
-       do.call("save", list(obj="soilDischarge", file=paste0(pathDate,"soilDischarge.rda")))
-       do.call("save", list(obj="ddistAll", file=paste0(pathDate,"ddistAll.rda")))
-       do.call("save", list(obj="groundwater", file=paste0(pathDate,"groundwater.rda")))
+     if (!is.null(timePeriod$indiceSave)) {
+       if (i == timePeriod$indiceSave) {
+         pathDate <- normalizePath(file.path(pathResults,saveDate),mustWork = FALSE)
+         dir.create(pathDate,showWarnings = FALSE)
+         do.call("save", list(obj="snow", file=normalizePath(file.path(pathDate,"snow.rda"),mustWork = FALSE)))
+         do.call("save", list(obj="snowReservoir", file=normalizePath(file.path(pathDate,"snowReservoir.rda"),mustWork = FALSE)))
+         do.call("save", list(obj="soilMoisture", file=normalizePath(file.path(pathDate,"soilMoisture.rda"),mustWork = FALSE)))
+         do.call("save", list(obj="soilWater", file=normalizePath(file.path(pathDate,"soilWater.rda"),mustWork = FALSE)))
+         do.call("save", list(obj="soilDischarge", file=normalizePath(file.path(pathDate,"soilDischarge.rda"),mustWork = FALSE)))
+         do.call("save", list(obj="ddistAll", file=normalizePath(file.path(pathDate,"ddistAll.rda"),mustWork = FALSE)))
+         do.call("save", list(obj="groundwater", file=normalizePath(file.path(pathDate,"groundwater.rda"),mustWork = FALSE)))
+       }
      }
 
 
   }
   colnames(simresult)<-c("year","month","day","hour","mhprec","mhtemp","qobs","qsim","middelsca","snowmag","M-D","D","G","Ea","X","Gbog","Eabog","Xbog","Z","waterGlacier","waterGSoilAndGlac")
-  write.csv(simresult, file = paste0(pathResults,"simulation.csv"),row.names = FALSE)
-  write.csv(Layersres, file = paste0(pathResults,"Layersres.csv"),row.names = FALSE)
+  write.csv(simresult, file = normalizePath(file.path(pathResults,"simulation.csv"),row.names = FALSE)
 
-  results <- list(simulation = simresult,
-                  Layers     = Layersres)
+  results <- list(simulation = simresult)
 
 
     } else stop("NULL arguments in parameters")

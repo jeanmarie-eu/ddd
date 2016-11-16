@@ -34,9 +34,8 @@ ddd <- function(fromPeriod=NULL,toPeriod=NULL,timeResolution=NULL,catchment="cat
          stop("Error: arguments 'fromPeriod','toPeriod','timeResolution','pathData','fileData','pathParam','fielParam' must be provided")
   } else {
 
-     pathResults   <- paste0(pathResults,"dddRes_",format(Sys.time(), "%Y-%m-%d-%H-%M",tz="GMT"),"/")
-     dir.create(pathResults, showWarnings = FALSE)
-
+     pathResults <- normalizePath(file.path(pathResults),mustWork = FALSE)
+     dir.create(pathResults, showWarnings = FALSE, recursive = TRUE)
 
      ###################################################################################################
      ###################################################################################################
@@ -66,8 +65,8 @@ ddd <- function(fromPeriod=NULL,toPeriod=NULL,timeResolution=NULL,catchment="cat
      ## - Snow Coverage Timeserie observed by satellite                                               ##
      ###################################################################################################
      ###################################################################################################
-
-     tmp <- utils::read.table(paste0(pathData,fileData),sep="\t")
+     pathData <- normalizePath(file.path(pathData),mustWork = FALSE)
+     tmp <- utils::read.table(normalizePath(file.path(pathData,fileData),mustWork = FALSE),sep="\t")
 
      # precip
      precip <- as.matrix(tmp[,5:14])
