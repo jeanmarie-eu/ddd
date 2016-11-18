@@ -46,7 +46,22 @@ start <- function(namefield,namespace,pathRes){
     soilWater = mySoilWater,
     ddistAll = myDdistAll,
     groundwater = myGroundwater,
-    uh = myUH
+    uh = myUH,
+    save = function(name){
+      myPrecipLZ$save(name)
+      myTempLZ$save(name)
+      myScaob$save(name)
+      myQ$save(name)
+      mySnow$save(name)
+      mySnowReservoir$save(name)
+      myEvapotranspiration$save(name)
+      mySoilDischarge$save(name)
+      mySoilMoisture$save(name)
+      mySoilWater$save(name)
+      myDdistAll$save(name)
+      myGroundwater$save(name)
+      myUH$save(name)
+      invisible()}
   )
 
   ## Define the value of the list within the current environment.
