@@ -25,3 +25,5 @@ param(ddd=ddd,method="processedNVE",path=pathParam,filename=fileParam)
 model(ddd=ddd,method="processedNVE",Timeresinsec=timePeriod$Timeresinsec,inputParam=ddd$inputParam$values())
 
 init(ddd=ddd,Timeresinsec=timePeriod$Timeresinsec,q1=ddd$Q$values()[1])
+
+simulation(ddd=ddd,timePeriod=timePeriod,saveDate=NULL,pathRes="~/test/")
