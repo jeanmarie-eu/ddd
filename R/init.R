@@ -54,7 +54,7 @@ init <-function(ddd,Timeresinsec,q1){
   ddd$ddistAll$do("init.ddistAll",args=list(method= "manual",
                                             S     = (-1)*D_ci,   # dD/dt = -dS/dt
                                             ddistx = NULL,
-                                            ddist  = rep(1/ddd$model$modelLayer$NoL,ddd$model$modelLayer$NoL) ))
+                                            ddist  = rep(1/ddd$model$values()$modelLayer$NoL,ddd$model$values()$modelLayer$NoL) ))
   ddd$ddistAll$save(name="init")
 
 
