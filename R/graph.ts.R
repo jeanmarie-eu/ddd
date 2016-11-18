@@ -61,7 +61,7 @@ graph.ts <- function(dateTS,
   graphics::plot(dateTS,precip,type="l",ylim=c(maxprecip,minprecip),axes=FALSE,xlab="", ylab="",col="blue")
   graphics::box()
   graphics::axis(4)
-  graphics::mtext("mm/h",side=4)
+  graphics::mtext("mm",side=4)
 
   if (!is.null(path)) dev.off()
 
