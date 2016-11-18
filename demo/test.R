@@ -16,9 +16,10 @@ timePeriod <- date(timeResolution="daily",fromPeriod="2000090106",toPeriod="2014
 
 pathData=paste0(.libPaths()[1],"/ddd/data/")
 fileData="val_24.9_24hptq_kal.txt"
-pathData <- normalizePath(file.path(pathData),mustWork = FALSE)
-tmp <- utils::read.table(normalizePath(file.path(pathData,fileData),mustWork = FALSE),sep="\t")
-precip <- as.matrix(tmp[,5:14])
+
+obs(ddd=ddd,pathPrecip=pathData,filenamePrecip=pathData)
+
+
 temp <- as.matrix(tmp[,15:24])
 q <- as.vector(tmp[,25])
 missingValues <- -10000
@@ -31,4 +32,4 @@ param(ddd=ddd,method="processedNVE",path=pathParam,filename=fileParam)
 
 model(ddd=ddd,method="processedNVE",Timeresinsec=timePeriod$Timeresinsec,inputParam=ddd$inputParam$values())
 
-init(Timeresinsec=timePeriod$Timeresinsec,ddd=ddd,q1=q[1])
+init(ddd=ddd,Timeresinsec=timePeriod$Timeresinsec,q1=q[1])
