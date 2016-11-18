@@ -20,7 +20,7 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' ddd()
+#' main()
 #' }
 
 main <- function(ddd,fromPeriod=NULL,toPeriod=NULL,timeResolution=NULL,catchment="catchment",pathData=NULL,fileData=NULL,pathParam=NULL,fileParam=NULL,methodParam="processedNVE",methodModel="processedNVE",pathResults="~/",D_ci=2,saveDate=NULL,FIGURE=FALSE){
