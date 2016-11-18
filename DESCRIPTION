@@ -25,6 +25,8 @@ Imports:
   dddSnow,
   dddPrecipLZ,
   dddTempLZ,
+  dddQ,
+  dddScaOb,
   timeManip,
   onionR
 Remotes:
@@ -38,6 +40,8 @@ Remotes:
     nexModeling/dddSnow,
     nexModeling/dddTempLZ,
     nexModeling/dddPrecipLZ,
+    nexModeling/dddQ,
+    nexModeling/dddScaOb,
     nexModeling/timeManip,
     nexModeling/onionR
 License: GPL-3
