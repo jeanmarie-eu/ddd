@@ -50,7 +50,7 @@ init <-function(ddd,Timeresinsec,q1){
   ddd$soilMoisture$save(name="init")
 
 
-  # F- SATURATION LAYER
+  # E- SATURATION LAYER
   ddd$ddistAll$do("init.ddistAll",args=list(method= "manual",
                                             S     = (-1)*D_ci,   # dD/dt = -dS/dt
                                             ddistx = NULL,
@@ -58,7 +58,7 @@ init <-function(ddd,Timeresinsec,q1){
   ddd$ddistAll$save(name="init")
 
 
-  # E- SOIL DISCHARGE: SLOPES AND BOGS
+  # F- SOIL DISCHARGE: SLOPES AND BOGS
   ddd$soilDischarge$do("init.soilDischarge",args=list(method="processed",
                                                      MAD=ddd$model$values()$modelSoilDischarge$MAD,
                                                      q1=q1,
