@@ -12,7 +12,7 @@
 #' \dontrun{
 #' obs()
 #' }
-obs <-function(ddd,pathPrecip,filenamePrecip,pathTemp,filenameTemp){
+obs <-function(ddd,pathPrecip,filenamePrecip,pathTemp,filenameTemp,pathQ,filenameQ){
 
   ddd$precipLZ$do("getPrecipLZ",args=list(method="processedNVE",path=pathPrecip,filename=filenamePrecip))
   ddd$precipLZ$save(name="obs")
@@ -20,7 +20,7 @@ obs <-function(ddd,pathPrecip,filenamePrecip,pathTemp,filenameTemp){
   ddd$tempLZ$do("getTempLZ",args=list(method="processedNVE",path=pathTemp,filename=filenameTemp))
   ddd$tempLZ$save(name="obs")
 
-  ddd$Q$do("getQ",args=list(method="processedNVE",path=pathTemp,filename=filenameTemp))
+  ddd$Q$do("getQ",args=list(method="processedNVE",path=pathQ,filename=filenameQ))
   ddd$Q$save(name="obs")
 
   invisible()
