@@ -24,9 +24,9 @@ if ( (!is.null(timePeriod)) && (!is.null(ddd))) {
   for (i in 1:timePeriod$nbStep){
 
      # Input variables
-     hprecip <- ddd$precipLZ$values()[i,]
-     htemp   <- ddd$tempLZ$values()[i,]
-     scaob   <- ddd$scaob$values() #NA
+     hprecip <- unlist(ddd$precipLZ$values()[i,])
+     htemp   <- unlist(ddd$tempLZ$values()[i,])
+     scaob   <- unlist(ddd$scaob$values()) #NA
 
      if (!is.na(htemp) && (!is.na(hprecip)) ){
 
