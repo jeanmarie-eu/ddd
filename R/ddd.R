@@ -25,15 +25,18 @@
 
 main <- function(ddd,fromPeriod=NULL,toPeriod=NULL,timeResolution=NULL,catchment="catchment",pathData=NULL,fileData=NULL,pathParam=NULL,fileParam=NULL,methodParam="processedNVE",methodModel="processedNVE",pathResults="~/",D_ci=2,saveDate=NULL,FIGURE=FALSE){
 
-  if ( (is.null(fromPeriod)) &&
+  if ( (is.null(ddd)) &&
+       (is.null(fromPeriod)) &&
        (is.null(toPeriod)) &&
        (is.null(timeResolution)) &&
        (is.null(pathData)) &&
        (is.null(fileData)) &&
        (is.null(pathParam)) &&
        (is.null(fileParam)) ) {
-         stop("Error: arguments 'fromPeriod','toPeriod','timeResolution','pathData','fileData','pathParam','fielParam' must be provided")
+         stop("Error: arguments 'ddd','fromPeriod','toPeriod','timeResolution','pathData','fileData','pathParam','fielParam' must be provided")
   } else {
+
+     ddd<- start(namefield="ddd",namespace="ddd",pathRes=pathResults)
 
      pathResults <- normalizePath(file.path(pathResults,paste0("dddRes_",format(Sys.time(), "%Y-%m-%d-%H-%M",tz="GMT"))),mustWork = FALSE)
      dir.create(pathResults, showWarnings = FALSE, recursive = TRUE)
