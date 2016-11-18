@@ -61,7 +61,7 @@ init <-function(ddd,Timeresinsec,q1){
   # E- SOIL DISCHARGE: SLOPES AND BOGS
   ddd$soilDischarge$do("init.soilDischarge",args=list(method="processed",
                                                      MAD=ddd$model$values()$modelSoilDischarge$MAD,
-                                                     q1=q[1],
+                                                     q1=q1,
                                                      D=D_ci,
                                                      Timeresinsec=Timeresinsec,
                                                      modelArea=ddd$model$values()$modelArea,
