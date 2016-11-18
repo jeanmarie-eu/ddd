@@ -1,7 +1,6 @@
 #' ddd general simulation
 #'
 #' Main function for the simulation of the hydrological model ddd
-#' @param ddd ddd object
 #' @param fromPeriod "YYYYmmddHH"
 #' @param toPeriod "YYYYmmddHH"
 #' @param timeResolution "daily", "three-hourly", "hourly"
@@ -23,10 +22,9 @@
 #' main()
 #' }
 
-main <- function(ddd,fromPeriod=NULL,toPeriod=NULL,timeResolution=NULL,catchment="catchment",pathData=NULL,fileData=NULL,pathParam=NULL,fileParam=NULL,methodParam="processedNVE",methodModel="processedNVE",pathResults="~/",D_ci=2,saveDate=NULL,FIGURE=FALSE){
+main <- function(fromPeriod=NULL,toPeriod=NULL,timeResolution=NULL,catchment="catchment",pathData=NULL,fileData=NULL,pathParam=NULL,fileParam=NULL,methodParam="processedNVE",methodModel="processedNVE",pathResults="~/",D_ci=2,saveDate=NULL,FIGURE=FALSE){
 
-  if ( (is.null(ddd)) &&
-       (is.null(fromPeriod)) &&
+  if ( (is.null(fromPeriod)) &&
        (is.null(toPeriod)) &&
        (is.null(timeResolution)) &&
        (is.null(pathData)) &&

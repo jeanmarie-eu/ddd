@@ -4,15 +4,13 @@
 \alias{main}
 \title{ddd general simulation}
 \usage{
-main(ddd, fromPeriod = NULL, toPeriod = NULL, timeResolution = NULL,
+main(fromPeriod = NULL, toPeriod = NULL, timeResolution = NULL,
   catchment = "catchment", pathData = NULL, fileData = NULL,
   pathParam = NULL, fileParam = NULL, methodParam = "processedNVE",
   methodModel = "processedNVE", pathResults = "~/", D_ci = 2,
   saveDate = NULL, FIGURE = FALSE)
 }
 \arguments{
-\item{ddd}{ddd object}
-
 \item{fromPeriod}{"YYYYmmddHH"}
 
 \item{toPeriod}{"YYYYmmddHH"}
