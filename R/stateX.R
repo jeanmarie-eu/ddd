@@ -54,7 +54,7 @@ stateX <-function(ddd,temperature,precipitation,scaob,Timeresinsec){
                                               nbStepsDelay=ddd$model$values()$modelLayer$nbStepsDelay,
                                               X=ddd$soilWater$values()$X))
 
-  ddd$mySoilDischarge$do("stateX.soilDischarge",args=list(Timeresinsec = Timeresinsec,
+  ddd$SoilDischarge$do("stateX.soilDischarge",args=list(Timeresinsec = Timeresinsec,
                                                       layerUH = ddd$uh$values()$layerUH,
                                                       ddistAll = ddd$ddistAll$values(),
                                                       UHriver = ddd$uh$values()$UHriver,
@@ -65,7 +65,7 @@ stateX <-function(ddd,temperature,precipitation,scaob,Timeresinsec){
                                                       areabog = ddd$model$values()$modelArea$bogarea,
                                                       qsimX = ddd$soilDischarge$values()$qsimX))
 
-   ddd$myGroundwater$do("stateX.groundwater",args=list(NoL=ddd$model$values()$modelLayer$NoL,
+   ddd$Groundwater$do("stateX.groundwater",args=list(NoL=ddd$model$values()$modelLayer$NoL,
                                                    Layers=ddd$groundwater$values()$Layers,
                                                    ddist=ddd$ddistAll$values()$ddist,
                                                    X=ddd$soilWater$values()$X,
