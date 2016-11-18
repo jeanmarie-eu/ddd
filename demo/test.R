@@ -17,13 +17,8 @@ timePeriod <- date(timeResolution="daily",fromPeriod="2000090106",toPeriod="2014
 pathData=paste0(.libPaths()[1],"/ddd/data/")
 fileData="val_24.9_24hptq_kal.txt"
 
-obs(ddd=ddd,pathPrecip=pathData,filenamePrecip=fileData,pathTemp=pathData,filenameTemp=fileData)
+obs(ddd=ddd,pathPrecip=pathData,filenamePrecip=fileData,pathTemp=pathData,filenameTemp=fileData,pathQ=pathData,filenameQ=fileData)
 
-
-
-q <- as.vector(tmp[,25])
-missingValues <- -10000
-q[q==missingValues] <- NA
 scaob   <- NA
 
 pathParam=paste0(.libPaths()[1],"/ddd/data/")
