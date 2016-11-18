@@ -34,12 +34,12 @@ graph.ts <- function(dateTS,
 
   if (!is.null(path)){
      dir.create(paste(path, "figures",sep=""), showWarnings = FALSE)
-     tiff(filename = paste(path,"figures/",name,".tif",sep=""), width = width_mm, height = height_mm,
+     grDevices::tiff(filename = paste(path,"figures/",name,".tif",sep=""), width = width_mm, height = height_mm,
      units = "mm", pointsize = 12,
      compression = "lzw",
      bg = "transparent", res = 300)
-   par(fig=c(0,0.8,0,1))
-  } else dev.new()
+   graphics::par(fig=c(0,0.8,0,1))
+  } else grDevices::dev.new()
 
   minq <- ifelse(is.null(minq),min(q,q2,na.rm=TRUE),minq)
   maxq <- ifelse(is.null(maxq),max(q,q2,na.rm=TRUE),maxq)
@@ -52,16 +52,16 @@ graph.ts <- function(dateTS,
     dateTS <- strptime(paste(tmp[,1],tmp[,2],tmp[,3],tmp[,4],sep="-"),format = "%Y-%m-%d-%H", tz="UTC")
   }
 
-  plot(dateTS,q,type="l",col="black",ylim=c(minq,maxq),axes=TRUE,xlab="dates", ylab=expression("m"^3~"/s") )
-  par(new=TRUE)
+  graphics::plot(dateTS,q,type="l",col="black",ylim=c(minq,maxq),axes=TRUE,xlab="dates", ylab=expression("m"^3~"/s") )
+  graphics::par(new=TRUE)
   if (!is.null(q2)){
-     plot(dateTS,q2,type="l",col="red",ylim=c(minq,maxq),axes=FALSE,xlab="", ylab="" )
-     par(new=TRUE)
+     graphics::plot(dateTS,q2,type="l",col="red",ylim=c(minq,maxq),axes=FALSE,xlab="", ylab="" )
+     graphics::par(new=TRUE)
   }
-  plot(dateTS,precip,type="l",ylim=c(maxprecip,minprecip),axes=FALSE,xlab="", ylab="",col="blue")
-  box()
-  axis(4)
-  mtext("mm/h",side=4)
+  graphics::plot(dateTS,precip,type="l",ylim=c(maxprecip,minprecip),axes=FALSE,xlab="", ylab="",col="blue")
+  graphics::box()
+  graphics::axis(4)
+  graphics::mtext("mm/h",side=4)
 
   if (!is.null(path)) dev.off()
 
