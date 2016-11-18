@@ -6,6 +6,8 @@
 #' @param filenamePrecip name of the precipitation file
 #' @param pathTemp path of the temperature observation
 #' @param filenameTemp name of the temperature file
+#' @param pathQ path of the runoff observation
+#' @param filenameQ name of the runoff file
 #' @keywords ddd
 #' @export
 #' @examples
