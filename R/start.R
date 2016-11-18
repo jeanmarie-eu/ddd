@@ -18,6 +18,7 @@ start <- function(namefield,namespace,pathRes){
   myModel <- onionR::block(namefield="model",namespace="dddModel",pathRes=pathDir)
   myPrecipLZ <- onionR::block(namefield="PrecipLZ",namespace="dddPrecipLZ",pathRes=pathDir)
   myTempLZ <- onionR::block(namefield="TempLZ",namespace="dddTempLZ",pathRes=pathDir)
+  myQ <- onionR::block(namefield="Q",namespace="dddQ",pathRes=pathDir)
   mySnow <- onionR::block(namefield="snow",namespace="dddSnow",pathRes=pathDir)
   mySnowReservoir <- onionR::block(namefield="snowReservoir",namespace="dddSnow",pathRes=pathDir)
   myEvapotranspiration <- onionR::block(namefield="evapotranspiration",namespace="dddEvapotranspiration",pathRes=pathDir)
@@ -34,6 +35,7 @@ start <- function(namefield,namespace,pathRes){
     model = myModel,
     precipLZ = myPrecipLZ,
     tempLZ = myTempLZ,
+    Q = myQ,
     snow = mySnow,
     snowReservoir = mySnowReservoir,
     evapotranspiration = myEvapotranspiration,

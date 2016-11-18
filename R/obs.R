@@ -20,6 +20,9 @@ obs <-function(ddd,pathPrecip,filenamePrecip,pathTemp,filenameTemp){
   ddd$tempLZ$do("getTempLZ",args=list(method="processedNVE",path=pathTemp,filename=filenameTemp))
   ddd$tempLZ$save(name="obs")
 
+  ddd$Q$do("getQ",args=list(method="processedNVE",path=pathTemp,filename=filenameTemp))
+  ddd$Q$save(name="obs")
+
   invisible()
 
 }
