@@ -16,6 +16,10 @@ obs(ddd, pathPrecip, filenamePrecip, pathTemp, filenameTemp, pathQ, filenameQ)
 \item{pathTemp}{path of the temperature observation}
 
 \item{filenameTemp}{name of the temperature file}
+
+\item{pathQ}{path of the runoff observation}
+
+\item{filenameQ}{name of the runoff file}
 }
 \description{
 Get the observations
