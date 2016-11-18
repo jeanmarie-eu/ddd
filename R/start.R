@@ -16,8 +16,9 @@ start <- function(namefield,namespace,pathRes){
 
   myInputParam <- onionR::block(namefield="inputParam",namespace="dddModel",pathRes=pathDir)
   myModel <- onionR::block(namefield="model",namespace="dddModel",pathRes=pathDir)
-  myPrecipLZ <- onionR::block(namefield="PrecipLZ",namespace="dddPrecipLZ",pathRes=pathDir)
-  myTempLZ <- onionR::block(namefield="TempLZ",namespace="dddTempLZ",pathRes=pathDir)
+  myPrecipLZ <- onionR::block(namefield="precipLZ",namespace="dddPrecipLZ",pathRes=pathDir)
+  myTempLZ <- onionR::block(namefield="tempLZ",namespace="dddTempLZ",pathRes=pathDir)
+  myScaob <- onionR::block(namefield="scaob",namespace="dddScaOb",pathRes=pathDir)
   myQ <- onionR::block(namefield="Q",namespace="dddQ",pathRes=pathDir)
   mySnow <- onionR::block(namefield="snow",namespace="dddSnow",pathRes=pathDir)
   mySnowReservoir <- onionR::block(namefield="snowReservoir",namespace="dddSnow",pathRes=pathDir)
@@ -35,6 +36,7 @@ start <- function(namefield,namespace,pathRes){
     model = myModel,
     precipLZ = myPrecipLZ,
     tempLZ = myTempLZ,
+    scaob = myScaob,
     Q = myQ,
     snow = mySnow,
     snowReservoir = mySnowReservoir,
