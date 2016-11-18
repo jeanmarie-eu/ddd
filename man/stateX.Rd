@@ -4,12 +4,18 @@
 \alias{stateX}
 \title{State of the hydrological processes}
 \usage{
-stateX(Timeresinsec, ddd)
+stateX(ddd, temperature, precipitation, scaob, Timeresinsec)
 }
 \arguments{
-\item{Timeresinsec}{time resolution of the process in second (1hour: 3600s, ... etc)}
-
 \item{ddd}{ddd object}
+
+\item{temperature}{temperature input}
+
+\item{precipitation}{precipitation input}
+
+\item{scaob}{snow coverage input}
+
+\item{Timeresinsec}{time resolution of the process in second (1hour: 3600s, ... etc)}
 }
 \description{
 The function does the following:
