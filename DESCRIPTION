@@ -1,6 +1,6 @@
 Package: ddd
 Type: Package
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: c(
             person("Thomas", "Skaugen", , "ths@nve.no", c("aut")),
             person("Zelalem", "Tadege", , "zme@nve.no", c("aut")),
@@ -25,7 +25,10 @@ Imports:
   dddSnow,
   dddPrecipLZ,
   dddTempLZ,
-  timeManip
+  dddQ,
+  dddScaOb,
+  timeManip,
+  onionR
 Remotes:
     nexModeling/dddModel,
     nexModeling/dddEvapotranspiration,
@@ -37,7 +40,10 @@ Remotes:
     nexModeling/dddSnow,
     nexModeling/dddTempLZ,
     nexModeling/dddPrecipLZ,
-    nexModeling/timeManip
+    nexModeling/dddQ,
+    nexModeling/dddScaOb,
+    nexModeling/timeManip,
+    nexModeling/onionR
 License: GPL-3
 URL: https://github.com/nexmodeling/ddd
 BugReports: https://github.com/nexmodeling/ddd/issues
