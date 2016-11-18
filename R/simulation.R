@@ -87,11 +87,10 @@ if ( (!is.null(timePeriod)) && (!is.null(ddd))) {
   csv_eol <- ifelse(grepl("mingw", R.Version()$platform), "\n", "\r\n")
   write.csv(simresult, file = normalizePath(file.path(pathRes,"simulation.csv"),mustWork = FALSE),row.names = FALSE,eol=csv_eol)
 
-  results <- list(simulation = simresult)
 
     } else stop("NULL arguments in parameters")
 
 
-  return(results)
+  invisible()
 
 }
