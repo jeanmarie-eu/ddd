@@ -1,0 +1,102 @@
+﻿Merge remote-tracking branch 'refs/remotes/origin/features' into dev
+
+# Conflicts:
+#	R/ddd.R
+#	R/do.soilDischarge.R
+#	R/do.stateX.R
+#	R/init.soilDischarge.R
+#	man/do.soilDischarge.Rd
+#	man/init.soilDischarge.Rd
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch dev
+# Your branch is up-to-date with 'origin/dev'.
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   DESCRIPTION
+#	modified:   NAMESPACE
+#	modified:   NEWS.md
+#	deleted:    R/ddd.R
+#	deleted:    R/desktop.ini
+#	deleted:    R/do.evapotranspiration.R
+#	deleted:    R/do.groundwater.Layers.R
+#	deleted:    R/do.groundwater.ddistAll.R
+#	deleted:    R/do.precipLZ.R
+#	deleted:    R/do.simTS.R
+#	deleted:    R/do.simTSv2.R
+#	deleted:    R/do.snow.R
+#	deleted:    R/do.snow.reservoir.R
+#	deleted:    R/do.soilDischarge.R
+#	deleted:    R/do.soilMoisture.R
+#	deleted:    R/do.soilWater.R
+#	deleted:    R/do.stateX.R
+#	deleted:    R/do.tempLZ.R
+#	deleted:    R/getModel.R
+#	deleted:    R/getParam.R
+#	modified:   R/graph.ts.R
+#	new file:   R/init.R
+#	deleted:    R/init.UH.R
+#	deleted:    R/init.ddistAll.R
+#	deleted:    R/init.groundwater.R
+#	deleted:    R/init.snow.R
+#	deleted:    R/init.snowReservoir.R
+#	deleted:    R/init.soilDischarge.R
+#	deleted:    R/init.soilMoisture.R
+#	deleted:    R/init.soilWater.R
+#	new file:   R/main.R
+#	new file:   R/model.R
+#	new file:   R/obs.R
+#	new file:   R/param.R
+#	new file:   R/simulation.R
+#	new file:   R/start.R
+#	new file:   R/stateX.R
+#	deleted:    data/desktop.ini
+#	modified:   demo/00Index
+#	modified:   demo/demo_24.9_24h.R
+#	deleted:    demo/desktop.ini
+#	new file:   demo/main_24.9_24h.R
+#	deleted:    demo/test.R
+#	deleted:    desktop.ini
+#	deleted:    man/desktop.ini
+#	deleted:    man/do.evapotranspiration.Rd
+#	deleted:    man/do.groundwater.Layers.Rd
+#	deleted:    man/do.groundwater.ddistAll.Rd
+#	deleted:    man/do.precipLZ.Rd
+#	deleted:    man/do.simTS.Rd
+#	deleted:    man/do.simTSv2.Rd
+#	deleted:    man/do.snow.Rd
+#	deleted:    man/do.snow.reservoir.Rd
+#	deleted:    man/do.soilDischarge.Rd
+#	deleted:    man/do.soilMoisture.Rd
+#	deleted:    man/do.soilWater.Rd
+#	deleted:    man/do.stateX.Rd
+#	deleted:    man/do.tempLZ.Rd
+#	deleted:    man/getModel.Rd
+#	deleted:    man/getParam.Rd
+#	new file:   man/init.Rd
+#	deleted:    man/init.UH.Rd
+#	deleted:    man/init.ddistAll.Rd
+#	deleted:    man/init.groundWater.Rd
+#	deleted:    man/init.snow.Rd
+#	deleted:    man/init.snowReservoir.Rd
+#	deleted:    man/init.soilDischarge.Rd
+#	deleted:    man/init.soilMoisture.Rd
+#	deleted:    man/init.soilWater.Rd
+#	renamed:    man/ddd.Rd -> man/main.Rd
+#	new file:   man/model.Rd
+#	new file:   man/obs.Rd
+#	new file:   man/param.Rd
+#	new file:   man/simulation.Rd
+#	new file:   man/start.Rd
+#	new file:   man/stateX.Rd
+#
+
