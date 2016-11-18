@@ -25,7 +25,8 @@ Imports:
   dddSnow,
   dddPrecipLZ,
   dddTempLZ,
-  timeManip
+  timeManip,
+  onionR
 Remotes:
     nexModeling/dddModel,
     nexModeling/dddEvapotranspiration,
@@ -37,7 +38,8 @@ Remotes:
     nexModeling/dddSnow,
     nexModeling/dddTempLZ,
     nexModeling/dddPrecipLZ,
-    nexModeling/timeManip
+    nexModeling/timeManip,
+    nexModeling/onionR
 License: GPL-3
 URL: https://github.com/nexmodeling/ddd
 BugReports: https://github.com/nexmodeling/ddd/issues
