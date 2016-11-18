@@ -9,20 +9,20 @@
 #' - initialize ddistAll
 #' - initialize grounwater
 #' - initialize soil water
-#' @param Timeresinsec time resolution of the process in second (1hour: 3600s, ... etc)
 #' @param ddd ddd object
+#' @param Timeresinsec time resolution of the process in second (1hour: 3600s, ... etc)
+#' @param q1 initial runoff
 #' @keywords ddd
 #' @export
 #' @examples
 #' \dontrun{
 #' init()
 #' }
-init <-function(Timeresinsec,ddd){
+init <-function(ddd,Timeresinsec,q1){
 
 
   D_ci <- 2
 
-  
   # A-UH
   ddd$uh$do("init.UH",args=list(method="processed",
                                 Timeresinsec=Timeresinsec,

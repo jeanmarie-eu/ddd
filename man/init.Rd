@@ -4,12 +4,14 @@
 \alias{init}
 \title{Initialize the hydrological processes}
 \usage{
-init(Timeresinsec, ddd)
+init(ddd, Timeresinsec, q1)
 }
 \arguments{
+\item{ddd}{ddd object}
+
 \item{Timeresinsec}{time resolution of the process in second (1hour: 3600s, ... etc)}
 
-\item{ddd}{ddd object}
+\item{q1}{initial runoff}
 }
 \description{
 The function does the following:
