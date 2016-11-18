@@ -4,7 +4,7 @@
 \alias{obs}
 \title{Get the observations}
 \usage{
-obs(ddd, pathPrecip, filenamePrecip)
+obs(ddd, pathPrecip, filenamePrecip, pathTemp, filenameTemp, pathQ, filenameQ)
 }
 \arguments{
 \item{ddd}{ddd object}
@@ -12,6 +12,10 @@ obs(ddd, pathPrecip, filenamePrecip)
 \item{pathPrecip}{path of the precipitation observation}
 
 \item{filenamePrecip}{name of the precipitation file}
+
+\item{pathTemp}{path of the temperature observation}
+
+\item{filenameTemp}{name of the temperature file}
 }
 \description{
 Get the observations
