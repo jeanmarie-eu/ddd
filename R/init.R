@@ -19,6 +19,10 @@
 #' }
 init <-function(Timeresinsec,ddd){
 
+
+  D_ci <- 2
+
+  
   # A-UH
   ddd$uh$do("init.UH",args=list(method="processed",
                                 Timeresinsec=Timeresinsec,
@@ -35,13 +39,24 @@ init <-function(Timeresinsec,ddd){
                                     alfa=rep(0,ddd$model$values()$modelPrecipLZ$nbLevelZone),ny=rep(0,ddd$model$values()$modelPrecipLZ$nbLevelZone),snowfree=0))
   ddd$snow$save(name="init")
 
+
   # C-SNOW RESERVOIR
-  ddd$snowReservoir$do("init.snowReservoir",args=list(method="manual",snomag=0,swe_h=0,middelsca=0,snofritt=0)
+  ddd$snowReservoir$do("init.snowReservoir",args=list(method="manual",snomag=0,swe_h=0,middelsca=0,snofritt=0))
   ddd$snowReservoir$save(name="init")
 
+
   # D-SOIL MOISURE
-  ddd$soilMoisture$do("init.soilMoisture",args=list(method="manual",waterSoil=0,waterGlaciatedSoil=0,waterGlaciers=0,Z=0)
+  ddd$soilMoisture$do("init.soilMoisture",args=list(method="manual",waterSoil=0,waterGlaciatedSoil=0,waterGlaciers=0,Z=0))
   ddd$soilMoisture$save(name="init")
+
+
+  # F- SATURATION LAYER
+  ddd$ddistAll$do("init.ddistAll",args=list(method= "manual",
+                                            S     = (-1)*D_ci,   # dD/dt = -dS/dt
+                                            ddistx = NULL,
+                                            ddist  = rep(1/ddd$model$modelLayer$NoL,ddd$model$modelLayer$NoL) ))
+  ddd$ddistAll$save(name="init")
+
 
   # E- SOIL DISCHARGE: SLOPES AND BOGS
   ddd$soilDischarge$do("init.soilDischarge",args=list(method="processed",
@@ -54,15 +69,9 @@ init <-function(Timeresinsec,ddd){
                                                      modelRiver=ddd$model$values()$modelRiver,
                                                      modelBog=ddd$model$values()$modelBog,
                                                      layerUH=ddd$uh$values()$layerUH,
-                                                     UHriver=ddd$uh$values()UHriver)
+                                                     ddistAll = ddd$ddistAll$values(),
+                                                     UHriver=ddd$uh$values()$UHriver))
   ddd$soilDischarge$save(name="init")
-
-  # F- SATURATION LAYER
-  ddd$ddistAll$do("init.ddistAll",args=list(method= "manual",
-                                            S     = (-1)*D_ci,   # dD/dt = -dS/dt
-                                            ddistx = NULL,
-                                            ddist  = rep(1/ddd$model$modelLayer$NoL,ddd$model$modelLayer$NoL) )
-  ddd$ddistAll$save(name="init")
 
 
   # G- GROUNDWATER ZONE (saturated zone with volume S)
@@ -72,7 +81,7 @@ init <-function(Timeresinsec,ddd){
                                                   MAD=ddd$model$values()$modelSoilDischarge$MAD,
                                                   modelArea=ddd$model$values()$modelArea,
                                                   modelSaturation=ddd$model$values()$modelSaturation,
-                                                  modelLayer=ddd$model$values()$modelLayer)
+                                                  modelLayer=ddd$model$values()$modelLayer))
   ddd$groundwater$save(name="init")
 
 
@@ -82,8 +91,8 @@ init <-function(Timeresinsec,ddd){
                                               G     = 0.2*ddd$groundwater$values()$M,
                                               X     = NULL,
                                               Eabog = NULL,
-                                              Gbog  = 0.95*ddd$groundwater$values()M,
-                                              Xbog  = NULL)
+                                              Gbog  = 0.95*ddd$groundwater$values()$M,
+                                              Xbog  = NULL))
   ddd$soilWater$save(name="init")
 
   invisible()

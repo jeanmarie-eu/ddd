@@ -53,14 +53,14 @@ stateX <-function(Timeresinsec,ddd){
 
   ddd$mySoilDischarge$do("stateX.soilDischarge",args=list(Timeresinsec = Timeresinsec,
                                                       layerUH = ddd$uh$values()$layerUH,
-                                                      ddist = ddd$ddistAll$values()$ddist,
+                                                      ddistAll = ddd$ddistAll$values(),
                                                       UHriver = ddd$uh$values()$UHriver,
                                                       waterContent = ddd$soilWater$values()$X/1000,        #/1000 -> mm
                                                       area = ddd$model$values()$modelArea$slopesriverarea,
-                                                      modelBog = ddd$model$values()modelBog,
+                                                      modelBog = ddd$model$values()$modelBog,
                                                       waterContentBog = ddd$soilWater$values()$Xbog/1000,  #/1000 -> mm
-                                                      areabog = ddd$model$values()modelArea$bogarea,
-                                                     qsimX = ddd$soilDischarge$values()$qsimX))
+                                                      areabog = ddd$model$values()$modelArea$bogarea,
+                                                      qsimX = ddd$soilDischarge$values()$qsimX))
 
    ddd$myGroundwater$do("stateX.groundwater",args=list(NoL=ddd$model$values()$modelLayer$NoL,
                                                    Layers=ddd$groundwater$values()$Layers,

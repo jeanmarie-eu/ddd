@@ -1,18 +1,18 @@
 #' Start
 #'
 #' Start by building the ddd Object
-#' @param namefield
-#' @param namespace
-#' @param pathRes
+#' @param namefield nme of the field
+#' @param namespace namespace
+#' @param pathRes path of the results
 #' @keywords ddd
 #' @export
 #' @examples
 #' start(namefield="ddd",namespace="ddd",pathRes="~/")
 #'
 
-start <- function(namefield,namespace,pathResults){
+start <- function(namefield,namespace,pathRes){
   myEnv <- environment()
-  pathDir <- pathResults
+  pathDir <- pathRes
 
   myInputParam <- onionR::block(namefield="inputParam",namespace="dddModel",pathRes=pathDir)
   myModel <- onionR::block(namefield="model",namespace="dddModel",pathRes=pathDir)

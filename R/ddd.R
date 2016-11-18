@@ -114,7 +114,8 @@ ddd <- function(fromPeriod=NULL,toPeriod=NULL,timeResolution=NULL,catchment="cat
      ###################################################################################################
      ###################################################################################################
 
-     model(Timeresinsec=timePeriod$Timeresinsec,ddd=ddd)
+     param(ddd=ddd,method=methodParam,path=pathParam,filename=fileParam)
+     model(ddd=ddd,method=methodModel,Timeresinsec=timePeriod$Timeresinsec,inputParam=ddd$inputParam$values())
 
 
      ###################################################################################################
@@ -164,13 +165,14 @@ ddd <- function(fromPeriod=NULL,toPeriod=NULL,timeResolution=NULL,catchment="cat
      ##    snow,soilMoisture,soilWater,soilDischarge,ddistAll,groundwater                             ##
      ###################################################################################################
      ###################################################################################################
-     results <- do.simTSv2(timePeriod      = timePeriod,
-                              q               = q,
-                              precip          = precip,
-                              temp            = temp,
-                              scaob           = scaob,
-                              ddd             = ddd,
-                              saveDate        = saveDate)
+
+     #results <- do.simTSv2(timePeriod      = timePeriod,
+     #                          q               = q,
+     #                          precip          = precip,
+      #                        temp            = temp,
+      #                        scaob           = scaob,
+      #                        ddd             = ddd,
+      #                        saveDate        = saveDate)
 
 
 
@@ -182,13 +184,13 @@ ddd <- function(fromPeriod=NULL,toPeriod=NULL,timeResolution=NULL,catchment="cat
      ## Timeserie of the observed runoff (red):                                                       ##
      ###################################################################################################
      ###################################################################################################
-     if (FIGURE) {
-       graph.ts(dateTS = timePeriod$dateTS,
-                   precip = rowMeans(precip,na.rm=TRUE),
-                   q      = results$simulation[,8],
-                   q2     = results$simulation[,7])
-
-     }
+    # if (FIGURE) {
+    #   graph.ts(dateTS = timePeriod$dateTS,
+    #               precip = rowMeans(precip,na.rm=TRUE),
+    #               q      = results$simulation[,8],
+    #               q2     = results$simulation[,7])
+#
+#     }
 
   }
 
