@@ -70,7 +70,9 @@ stateX <-function(ddd,temperature,precipitation,scaob,Timeresinsec){
                                                    ddist=ddd$ddistAll$values()$ddist,
                                                    X=ddd$soilWater$values()$X,
                                                    layerUH=ddd$uh$values()$layerUH,
-                                                   nbStepsDelay=ddd$model$values()$modelLayer$nbStepsDelay))
+                                                   nbStepsDelay=ddd$model$values()$modelLayer$nbStepsDelay)
+                                                   Magkap=ddd$groundwater$values()$Magkap,
+                                                   M=ddd$groundwater$values()$M)
 
   invisible()
 
