@@ -114,26 +114,7 @@ ddd <- function(fromPeriod=NULL,toPeriod=NULL,timeResolution=NULL,catchment="cat
      ###################################################################################################
      ###################################################################################################
 
-     # GET PARAMETERS
-     inputParam <- getParam(method=methodParam,path=pathParam, filename=fileParam,SAVE=TRUE,pathResults=pathResults)
-
-     # GET MODELS
-     models <- getModel(method=methodModel,inputParam=inputParam,Timeresinsec=timePeriod$Timeresinsec,SAVE=TRUE,pathResults=pathResults)
-
-     # OUTPUT: (list)
-     #     - modelk
-     #     - modelSoilMoisture
-     #     - modelSoilWater
-     #     - modelSoil
-     #     - modelSaturation
-     #     - modelLayer
-     #     - modelRiver
-     #     - modelBog
-     #     - modelMAD
-     #     - modelSnow
-     #     - modelTempLZ
-     #     - modelPrecipLZ
-     #     - modelArea
+     model(Timeresinsec=timePeriod$Timeresinsec,ddd=ddd)
 
 
      ###################################################################################################
@@ -159,104 +140,7 @@ ddd <- function(fromPeriod=NULL,toPeriod=NULL,timeResolution=NULL,catchment="cat
      ## - groundwater                                                                                 ##
      ###################################################################################################
      ###################################################################################################
-
-     # A-UH
-     UH <- init.UH(method="processed",Timeresinsec=timePeriod$Timeresinsec,modelLayer=models$modelLayer,modelRiver=models$modelRiver,modelMAD=models$modelMAD)
-     # OUTPUT (list)
-     # - UHriver
-     # - layerUH
-     # - UHMAD
-
-     # B-SNOW
-     snow <- init.snow(method="manual",
-                       isoil=rep(0,models$modelPrecipLZ$nbLevelZone),gisoil=rep(0,models$modelPrecipLZ$nbLevelZone),
-                       spd=rep(0,models$modelPrecipLZ$nbLevelZone),wcd=rep(0,models$modelPrecipLZ$nbLevelZone),
-                       sca=rep(0,models$modelPrecipLZ$nbLevelZone),nsno=rep(0,models$modelPrecipLZ$nbLevelZone),
-                       alfa=rep(0,models$modelPrecipLZ$nbLevelZone),ny=rep(0,models$modelPrecipLZ$nbLevelZone),snowfree=0)
-     # parameters to be putted into the parameter files
-     # UP   # DEFAULT: 0
-     # OUTPUT (list)
-     # - isoil
-     # - gisoil
-     # - spd
-     # - wcd
-     # - sca
-     # - nsno
-     # - alfa
-     # - ny
-     # - snowfree
-
-     # C-SNOW RESERVOIR
-     snowReservoir <-init.snowReservoir(method="manual",snomag=0,swe_h=0,middelsca=0,snofritt=0)
-     # OUTPUT (list)
-     # - snomag
-     # - swe_h
-     # - middelsca
-     # - snofritt
-
-     # D-SOIL MOISURE
-     soilMoisture <- init.soilMoisture(method="manual",waterSoil=0,waterGlaciatedSoil=0,waterGlaciers=0,Z=0)
-     # OUTPUT (list)
-     # - waterSoil
-     # - waterGlaciatedSoil
-     # - waterGlaciers
-     # - Z
-
-     # E- SOIL DISCHARGE: SLOPES AND BOGS
-     soilDischarge <- init.soilDischarge(method="processed",
-                                         MAD=models$modelSoilDischarge$MAD,
-                                         q1=q[1],
-                                         D=D_ci,
-                                         Timeresinsec=timePeriod$Timeresinsec,
-                                         modelArea=models$modelArea,
-                                         modelLayer=models$modelLayer,
-                                         modelRiver=models$modelRiver,
-                                         modelBog=models$modelBog,
-                                         layerUH=UH$layerUH,
-                                         UHriver=UH$UHriver)
-     # OUTPUT (list)
-     # - D: moisture in mm, derived from the approx. mean annual dicharge (MAD)
-     # - qsimutX: Discharge with the contributions from both slopes and bogs (in m3/s) )
-     # - qsimX:
-
-
-     # F- SATURATION LAYER
-     ddistAll <- init.ddistAll(method= "manual",
-                                S     = (-1)*D_ci,   # dD/dt = -dS/dt
-                                ddistx = NULL,
-                                ddist  = rep(1/models$modelLayer$NoL,models$modelLayer$NoL) )
-
-
-     # G- GROUNDWATER ZONE (saturated zone with volume S)
-     groundwater <- init.groundwater(method="processed",
-                                      Timeresinsec=timePeriod$Timeresinsec,
-                                      UHMAD=UH$UHMAD,
-                                      MAD=models$modelSoilDischarge$MAD,
-                                      modelArea=models$modelArea,
-                                      modelSaturation=models$modelSaturation,
-                                      modelLayer=models$modelLayer)
-     # OUTPUT (list)
-     # - Magkap
-     # - M: Groundwater Storage Capacity (GSC)
-     # - Layers: Layers of saturation
-
-
-     # I- RECEIVED SOIL MOISTURE (from precipitation and melting snow and bogs)
-     soilWater <- init.soilWater(method="manual",
-                                  Ea    = NULL,
-                                  G     = 0.2*groundwater$M,
-                                  X     = NULL,
-                                  Eabog = NULL,
-                                  Gbog  = 0.95*groundwater$M,
-                                  Xbog  = NULL)
-     # OUTPUT (list)
-     # - Ea, actual evapotranspiration on soil
-     # - G, received soilmoisture from precipitation and snowmel
-     # - X, excess water
-     # - Eabog, actual evapotranspiration on bogs
-     # - Gbog, received soilmoisture from precipitation and snowmel from bogs
-     # - Xbog, excess water
-
+     init(Timeresinsec=timePeriod$Timeresinsec,ddd=ddd)
 
 
      ###################################################################################################
@@ -285,16 +169,7 @@ ddd <- function(fromPeriod=NULL,toPeriod=NULL,timeResolution=NULL,catchment="cat
                               precip          = precip,
                               temp            = temp,
                               scaob           = scaob,
-                              UH              = UH,
-                              snow            = snow,
-                              snowReservoir   = snowReservoir,
-                              soilMoisture    = soilMoisture,
-                              soilWater       = soilWater,
-                              soilDischarge   = soilDischarge,
-                              ddistAll        = ddistAll,
-                              groundwater     = groundwater,
-                              models          = models,
-                              pathResults     = pathResults,
+                              ddd             = ddd,
                               saveDate        = saveDate)
 
 

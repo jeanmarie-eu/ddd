@@ -29,24 +29,12 @@ do.simTSv2 <-function(timePeriod,
                   precip,
                   temp,
                   scaob,
-                  snow,
-                  snowReservoir,
-                  soilMoisture,
-                  soilWater,
-                  UH,
-                  soilDischarge,
-                  ddistAll,
-                  groundwater,
-                  models,
-                  pathResults,
+                  ddd,
                   saveDate){
 
 
 if ( (!is.null(timePeriod)) && (!is.null(q)) && (!is.null(precip)) &&
-     (!is.null(temp)) && (!is.null(scaob)) && (!is.null(UH)) &&
-     (!is.null(snow)) && (!is.null(snowReservoir)) && (!is.null(soilMoisture)) &&
-     (!is.null(soilWater)) && (!is.null(soilDischarge)) && (!is.null(ddistAll)) &&
-     (!is.null(groundwater)) && (!is.null(models)) && (!is.null(pathResults))
+     (!is.null(temp)) && (!is.null(scaob)) && (!is.null(ddd))
      ) {
 
   # simulation to be recorded
@@ -70,37 +58,7 @@ if ( (!is.null(timePeriod)) && (!is.null(q)) && (!is.null(precip)) &&
        ## 5- UPDATE ddistAll <-LIST(SP)                                       ##
        ## 6- UPDATE GROUNDWATER <- LIST(MAGKAP,M,LAYERS)                      ##
        #########################################################################
-       stateX <- do.stateX(Timeresinsec      = timePeriod$Timeresinsec,
-                            precipX           = hprecip,
-                            tempX             = htemp,
-                            scaobX            = scaob,
-                            snowX             = snow,
-                            soilMoistureX     = soilMoisture,
-                            snowReservoirX    = snowReservoir,
-                            soilWaterX        = soilWater,
-                            UH                = UH,
-                            ddistAllX         = ddistAll,
-                            soilDischargeX    = soilDischarge,
-                            groundwaterX      = groundwater,
-                            modelPrecipLZ     = models$modelPrecipLZ,
-                            modelTempLZ       = models$modelTempLZ,
-                            modelSnow         = models$modelSnow,
-                            modelSoilMoisture = models$modelSoilMoisture,
-                            modelSoil         = models$modelSoil,
-                            modelBog          = models$modelBog,
-                            modelET           = models$modelET,
-                            modelSoilWater    = models$modelSoilWater,
-                            modelArea         = models$modelArea,
-                            modelLayer        = models$modelLayer)
-
-       # Updating variables
-       snow             <- stateX$snow
-       snowReservoir    <- stateX$snowReservoir
-       soilMoisture     <- stateX$soilMoisture
-       soilWater        <- stateX$soilWater
-       soilDischarge    <- stateX$soilDischarge
-       ddistAll         <- stateX$ddistAll
-       groundwater      <- stateX$groundwater
+       stateX(Timeresinsec=timePeriod$Timeresinsec,ddd=ddd)
 
        # Save simulation
        simresult <- rbind(simresult,
