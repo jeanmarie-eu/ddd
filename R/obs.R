@@ -12,8 +12,8 @@
 #' }
 obs <-function(ddd,pathPrecip,filenamePrecip){
 
-  ddd$PrecipLZ$do("getPrecipLZ",args=list(method="none",path=pathPrecip,filename=filenamePrecip))
-  ddd$PrecipLZ$save(name="obs")
+  ddd$precipLZ$do("getPrecipLZ",args=list(method="none",path=pathPrecip,filename=filenamePrecip))
+  ddd$precipLZ$save(name="obs")
 
   invisible()
 
