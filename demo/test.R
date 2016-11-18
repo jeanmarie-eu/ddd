@@ -17,7 +17,7 @@ timePeriod <- date(timeResolution="daily",fromPeriod="2000090106",toPeriod="2014
 pathData=paste0(.libPaths()[1],"/ddd/data/")
 fileData="val_24.9_24hptq_kal.txt"
 
-obs(ddd=ddd,pathPrecip=pathData,filenamePrecip=pathData)
+obs(ddd=ddd,pathPrecip=pathData,filenamePrecip=fileData)
 
 
 temp <- as.matrix(tmp[,15:24])
