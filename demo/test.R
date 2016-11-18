@@ -27,3 +27,6 @@ model(ddd=ddd,method="processedNVE",Timeresinsec=timePeriod$Timeresinsec,inputPa
 init(ddd=ddd,Timeresinsec=timePeriod$Timeresinsec,q1=ddd$Q$values()[1])
 
 simulation(ddd=ddd,timePeriod=timePeriod,saveDate=NULL,pathRes="~/test/")
+
+#Runoff
+ddd$soilDischarge$values()$qsimX[1]
