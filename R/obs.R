@@ -23,6 +23,9 @@ obs <-function(ddd,pathPrecip,filenamePrecip,pathTemp,filenameTemp,pathQ,filenam
   ddd$Q$do("getQ",args=list(method="processedNVE",path=pathQ,filename=filenameQ))
   ddd$Q$save(name="obs")
 
+  ddd$scaob$do("getScaOb",args=list(method="nothing"))
+  ddd$scaob$save(name="obs")
+
   invisible()
 
 }
