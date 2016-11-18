@@ -16,10 +16,7 @@ timePeriod <- date(timeResolution="daily",fromPeriod="2000090106",toPeriod="2014
 
 pathData=paste0(.libPaths()[1],"/ddd/data/")
 fileData="val_24.9_24hptq_kal.txt"
-
 obs(ddd=ddd,pathPrecip=pathData,filenamePrecip=fileData,pathTemp=pathData,filenameTemp=fileData,pathQ=pathData,filenameQ=fileData)
-
-scaob   <- NA
 
 pathParam=paste0(.libPaths()[1],"/ddd/data/")
 fileParam="best_par_24.9_24h.txt"
@@ -27,4 +24,4 @@ param(ddd=ddd,method="processedNVE",path=pathParam,filename=fileParam)
 
 model(ddd=ddd,method="processedNVE",Timeresinsec=timePeriod$Timeresinsec,inputParam=ddd$inputParam$values())
 
-init(ddd=ddd,Timeresinsec=timePeriod$Timeresinsec,q1=q[1])
+init(ddd=ddd,Timeresinsec=timePeriod$Timeresinsec,q1=ddd$Q$values()[1])
