@@ -17,6 +17,7 @@
 #' @param modelBog list of parameters of the bog
 #'  list(maxL,speed,nbStepsDelay,z,dist,param)
 #' @param layerUH Unit Hydrograph of the saturation layers
+#' @param ddistAll states of the staturation layers
 #' @param UHriver Unit Hydrograp of the river
 #' @keywords ddd
 #' @export
@@ -26,12 +27,12 @@
 #'}
 init.soilDischarge <-function(method=NULL,path=NULL,MAD=NULL,q1=NULL,D=NULL,Timeresinsec=NULL,
                               modelArea=NULL,modelLayer=NULL,modelRiver=NULL,modelBog=NULL,
-                              layerUH=NULL,UHriver=NULL){
+                              layerUH=NULL,ddistAll=NULL,UHriver=NULL){
 
   res <- dddSoilDischarge::init.soilDischarge(method=method,path=path,MAD=MAD,q1=q1,D=D,Timeresinsec=Timeresinsec,
                                modelArea=modelArea,modelLayer=modelLayer,
                                modelRiver=modelRiver,modelBog=modelBog,
-                               layerUH=layerUH,UHriver=UHriver)
+                               layerUH=layerUH,ddistAll=ddistAll,UHriver=UHriver)
   return(res)
 
 }

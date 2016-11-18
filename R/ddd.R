@@ -202,6 +202,12 @@ ddd <- function(fromPeriod=NULL,toPeriod=NULL,timeResolution=NULL,catchment="cat
      # - waterGlaciers
      # - Z
 
+     # F- SATURATION LAYER
+     ddistAll <- init.ddistAll(method= "manual",
+                                S     = (-1)*D_ci,   # dD/dt = -dS/dt
+                                ddistx = NULL,
+                                ddist  = rep(1/models$modelLayer$NoL,models$modelLayer$NoL) )
+
      # E- SOIL DISCHARGE: SLOPES AND BOGS
      soilDischarge <- init.soilDischarge(method="processed",
                                          MAD=models$modelSoilDischarge$MAD,
@@ -213,6 +219,7 @@ ddd <- function(fromPeriod=NULL,toPeriod=NULL,timeResolution=NULL,catchment="cat
                                          modelRiver=models$modelRiver,
                                          modelBog=models$modelBog,
                                          layerUH=UH$layerUH,
+                                         ddistAll = ddistAll,
                                          UHriver=UH$UHriver)
      # OUTPUT (list)
      # - D: moisture in mm, derived from the approx. mean annual dicharge (MAD)
@@ -220,11 +227,7 @@ ddd <- function(fromPeriod=NULL,toPeriod=NULL,timeResolution=NULL,catchment="cat
      # - qsimX:
 
 
-     # F- SATURATION LAYER
-     ddistAll <- init.ddistAll(method= "manual",
-                                S     = (-1)*D_ci,   # dD/dt = -dS/dt
-                                ddistx = NULL,
-                                ddist  = rep(1/models$modelLayer$NoL,models$modelLayer$NoL) )
+
 
 
      # G- GROUNDWATER ZONE (saturated zone with volume S)
