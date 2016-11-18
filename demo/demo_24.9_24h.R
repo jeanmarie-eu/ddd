@@ -8,8 +8,11 @@ timeResolution <- "daily"
 catchment      <- "Tingvatn"
 pathData       <- paste0(.libPaths()[1],"/ddd/data/")
 fileData       <- "val_24.9_24hptq_kal.txt"
+methodParam    <- "processedNVE"
 pathParam      <- paste0(.libPaths()[1],"/ddd/data/")
 fileParam      <- "best_par_24.9_24h.txt"
+methodModel    <- "processedNVE"
+saveDate       <- "2013042406"
 FIGURE         <- TRUE
 
 pathResults <- normalizePath(file.path("~/",paste0("dddRes_",format(Sys.time(), "%Y-%m-%d-%H-%M",tz="GMT"))),mustWork = FALSE)
