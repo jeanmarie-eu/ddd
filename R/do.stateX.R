@@ -221,7 +221,7 @@ do.stateX <-function(Timeresinsec,
   # SOIL DISCHARGE: SLOPES AND BOGS
   sd <- do.soilDischarge(Timeresinsec = Timeresinsec,
                           layerUH = UH$layerUH,
-                          ddist = ddistAllUpdate$ddist,
+                          ddistAll = ddistAllUpdate,
                           UHriver = UH$UHriver,
                           waterContent = soilWaterUpdate$X/1000,        #/1000 -> mm
                           area = modelArea$slopesriverarea,

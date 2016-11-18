@@ -4,7 +4,7 @@
 \alias{do.soilDischarge}
 \title{state of Soil Discharge}
 \usage{
-do.soilDischarge(Timeresinsec, layerUH, ddist, UHriver, waterContent, area,
+do.soilDischarge(Timeresinsec, layerUH, ddistAll, UHriver, waterContent, area,
   modelBog, waterContentBog, areabog, qsimX)
 }
 \arguments{
@@ -12,7 +12,7 @@ do.soilDischarge(Timeresinsec, layerUH, ddist, UHriver, waterContent, area,
 
 \item{layerUH}{Unit Hydrograph of the saturation layers}
 
-\item{ddist}{states of each saturation level}
+\item{ddistAll}{states of each saturation level}
 
 \item{UHriver}{Unit Hydrograp of the river}
 
