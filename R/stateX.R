@@ -7,19 +7,22 @@
 #' - state of Soil Discharge: D(t), runoff
 #' - state of ddistAll: ddist, ddisx, S
 #' - state of Groundwater: MAGKAP,M,Saturation Layers
-#' @param Timeresinsec time resolution of the process in second (1hour: 3600s, ... etc)
 #' @param ddd ddd object
+#' @param temperature temperature input
+#' @param precipitation precipitation input
+#' @param scaob snow coverage input
+#' @param Timeresinsec time resolution of the process in second (1hour: 3600s, ... etc)
 #' @keywords ddd
 #' @export
 #' @examples
 #' \dontrun{
 #' stateX()
 #' }
-stateX <-function(Timeresinsec,ddd){
+stateX <-function(ddd,temperature,precipitation,scaob,Timeresinsec){
 
-  ddd$snow$do("stateX.snow",args=list(htempX=ddd$tempLZ$values(),
-                                      hprecipX=ddd$precipLZ$values(),
-                                      scaobX=ddd$scaob$values(),
+  ddd$snow$do("stateX.snow",args=list(htempX=temperature,
+                                      hprecipX=precipitation,
+                                      scaobX=scaob,
                                       snowX=ddd$snow$values(),
                                       modelSnow=ddd$model$values()$modelSnow,
                                       modelPrecipLZ=ddd$model$values()$modelPrecipLZ))
@@ -33,7 +36,7 @@ stateX <-function(Timeresinsec,ddd){
 
   ddd$snowReservoir$do("stateX.snowReservoir",args=list(snow=ddd$snow$values()))
 
-  ddd$evapotranspiration$do("stateX.evapotranspiration",args=list(htemp=ddd$tempLZ$values(),sca=ddd$snow$values()$sca))
+  ddd$evapotranspiration$do("stateX.evapotranspiration",args=list(htemp=temperature,sca=ddd$snow$values()$sca))
 
   ddd$soilWater$do("stateX.soilWater",args=list(eatemp=ddd$evapotranspiration$values()$eatemp,
                                                 cea=ddd$model$values()$modelET$cea,
