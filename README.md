@@ -16,18 +16,31 @@ devtools::install_github("nexModeling/ddd")
 ```
 
 ## Usage
-Sofar, only a demo (/demo/test.R) might be taken as a tutorial.
-More how-to's will be release soon on the [ddd webpage](https://nexmodeling.github.io/ddd/)
+
+```R
+library(ddd)
+
+main(fromPeriod="2000090106",
+     toPeriod="2014123106",
+     timeResolution="daily",
+     catchment="Tingvatn",
+     pathData=paste0(.libPaths()[1],"/ddd/data/"),
+     fileData="val_24.9_24hptq_kal.txt",
+     pathParam=paste0(.libPaths()[1],"/ddd/data/"),
+     fileParam="best_par_24.9_24h.txt",
+     FIGURE=TRUE)
+```
 
 ## Dependencies
 
 The ddd R-package works as a holding package that drives a set of packages:
 
 - [dddModel](https://nexmodeling.github.io/dddModel/)
-- [dddCelerity](https://nexmodeling.github.io/dddCelerity/)
 - [dddEvapotranspiration](https://nexmodeling.github.io/dddEvapotranspiration/)
 - [dddPrecipLZ](https://nexmodeling.github.io/dddPrecipLZ/)
 - [dddTempLZ](https://nexmodeling.github.io/dddTempLZ/)
+- [dddScaOb](https://nexmodeling.github.io/dddScaOb/)
+- [dddQ](https://nexmodeling.github.io/dddQ/)
 - [dddSnow](https://nexmodeling.github.io/dddSnow/)
 - [dddSoilMoisture](https://nexmodeling.github.io/dddSoilMoisture/)
 - [dddSoilWater](https://nexmodeling.github.io/dddSoilWater/)
