@@ -23,7 +23,7 @@ init <-function(ddd,Timeresinsec,q1){
 
   D_ci <- 2
 
-  # A-UH
+  # output: UHriver,layerUH,UHMAD
   ddd$uh$do("init.UH",args=list(method="processed",
                                 Timeresinsec=Timeresinsec,
                                 modelLayer=ddd$model$values()$modelLayer,
@@ -31,7 +31,7 @@ init <-function(ddd,Timeresinsec,q1){
                                 modelMAD=ddd$model$values()$modelMAD))
   ddd$uh$save(name="init")
 
-  # B-SNOW
+  # output: isoil,gisoil,spd,wcd,sca,nsno,alfa,ny,snowfree
   ddd$snow$do("init.snow",args=list(method="manual",
                                     isoil=rep(0,ddd$model$values()$modelPrecipLZ$nbLevelZone),gisoil=rep(0,ddd$model$values()$modelPrecipLZ$nbLevelZone),
                                     spd=rep(0,ddd$model$values()$modelPrecipLZ$nbLevelZone),wcd=rep(0,ddd$model$values()$modelPrecipLZ$nbLevelZone),
@@ -40,17 +40,17 @@ init <-function(ddd,Timeresinsec,q1){
   ddd$snow$save(name="init")
 
 
-  # C-SNOW RESERVOIR
+  # output: swe_h,snomag,middelsca,snofritt
   ddd$snowReservoir$do("init.snowReservoir",args=list(method="manual",snomag=0,swe_h=0,middelsca=0,snofritt=0))
   ddd$snowReservoir$save(name="init")
 
 
-  # D-SOIL MOISURE
+  # output: waterSoil,waterGlaciatedSoil,waterGlaciers,Z
   ddd$soilMoisture$do("init.soilMoisture",args=list(method="manual",waterSoil=0,waterGlaciatedSoil=0,waterGlaciers=0,Z=0))
   ddd$soilMoisture$save(name="init")
 
 
-  # E- SATURATION LAYER
+  # output: ddistx,ddistS,S
   ddd$ddistAll$do("init.ddistAll",args=list(method= "manual",
                                             S     = (-1)*D_ci,   # dD/dt = -dS/dt
                                             ddistx = NULL,
@@ -58,7 +58,7 @@ init <-function(ddd,Timeresinsec,q1){
   ddd$ddistAll$save(name="init")
 
 
-  # F- SOIL DISCHARGE: SLOPES AND BOGS
+  # output: D,qsimX,qsimutx
   ddd$soilDischarge$do("init.soilDischarge",args=list(method="processed",
                                                      MAD=ddd$model$values()$modelSoilDischarge$MAD,
                                                      q1=q1,
@@ -74,7 +74,7 @@ init <-function(ddd,Timeresinsec,q1){
   ddd$soilDischarge$save(name="init")
 
 
-  # G- GROUNDWATER ZONE (saturated zone with volume S)
+  # output: Magkap,M,Layers
   ddd$groundwater$do("init.groundwater",args=list(method="processed",
                                                   Timeresinsec=Timeresinsec,
                                                   UHMAD=ddd$uh$values()$UHMAD,
@@ -85,7 +85,7 @@ init <-function(ddd,Timeresinsec,q1){
   ddd$groundwater$save(name="init")
 
 
-  # I- RECEIVED SOIL MOISTURE (from precipitation and melting snow and bogs)
+  # output: Ea,G,X,Eabog,Gbog,Xbog
   ddd$soilWater$do("init.soilWater",args=list(method="manual",
                                               Ea    = NULL,
                                               G     = 0.2*ddd$groundwater$values()$M,

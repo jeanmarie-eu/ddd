@@ -20,6 +20,7 @@
 #' }
 stateX <-function(ddd,temperature,precipitation,scaob,Timeresinsec){
 
+  # output: gisoil,isoil,spd,wcd,sca,nsno,alfa,ny,snowfree
   ddd$snow$do("stateX.snow",args=list(htempX=temperature,
                                       hprecipX=precipitation,
                                       scaobX=scaob,
@@ -27,6 +28,7 @@ stateX <-function(ddd,temperature,precipitation,scaob,Timeresinsec){
                                       modelSnow=ddd$model$values()$modelSnow,
                                       modelPrecipLZ=ddd$model$values()$modelPrecipLZ))
 
+  # output: waterSoil,waterGlaciatedSoil,waterGlaciers,Z
   ddd$soilMoisture$do("stateX.soilMoisture",args=list(isoil=ddd$snow$values()$isoil,
                                                       gisoil=ddd$snow$values()$gisoil,
                                                       swgt=ddd$model$values()$modelSoilMoisture$swgt,
@@ -34,10 +36,13 @@ stateX <-function(ddd,temperature,precipitation,scaob,Timeresinsec){
                                                       snowfree=ddd$snow$values()$snowfree,
                                                       glacfrac=ddd$model$values()$modelSoil$glacfrac))
 
+  # output: swe_h,snomag,middelsca,snofritt
   ddd$snowReservoir$do("stateX.snowReservoir",args=list(snow=ddd$snow$values()))
 
+  # output: eatemp
   ddd$evapotranspiration$do("stateX.evapotranspiration",args=list(htemp=temperature,sca=ddd$snow$values()$sca))
 
+  # output: Ea,G,X,Eabog,Gbog,Xbog
   ddd$soilWater$do("stateX.soilWater",args=list(eatemp=ddd$evapotranspiration$values()$eatemp,
                                                 cea=ddd$model$values()$modelET$cea,
                                                 M=ddd$groundwater$values()$M,
@@ -49,11 +54,13 @@ stateX <-function(ddd,temperature,precipitation,scaob,Timeresinsec){
                                                 Gbog=ddd$soilWater$values()$Gbog,
                                                 Zbog=ddd$soilMoisture$values()$waterSoil))
 
+  # output: ddistx,ddist,S
   ddd$ddistAll$do("stateX.ddistAll",args=list(Layers=ddd$groundwater$values()$Layers,
                                               Magkap=ddd$groundwater$values()$Magkap,
                                               nbStepsDelay=ddd$model$values()$modelLayer$nbStepsDelay,
                                               X=ddd$soilWater$values()$X))
 
+  # output: D,qsimX,qsimutx
   ddd$soilDischarge$do("stateX.soilDischarge",args=list(Timeresinsec = Timeresinsec,
                                                       layerUH = ddd$uh$values()$layerUH,
                                                       ddistAll = ddd$ddistAll$values(),
@@ -65,6 +72,7 @@ stateX <-function(ddd,temperature,precipitation,scaob,Timeresinsec){
                                                       areabog = ddd$model$values()$modelArea$bogarea,
                                                       qsimX = ddd$soilDischarge$values()$qsimX))
 
+   # output: Magkap,M,Layers
    ddd$groundwater$do("stateX.groundwater",args=list(NoL=ddd$model$values()$modelLayer$NoL,
                                                    Layers=ddd$groundwater$values()$Layers,
                                                    ddist=ddd$ddistAll$values()$ddist,
