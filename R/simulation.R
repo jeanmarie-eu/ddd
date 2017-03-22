@@ -6,13 +6,14 @@
 #' @param ddd ddd object
 #' @param saveDate date to be saved if any
 #' @param pathRes path of the results for the csv file
+#' @param nameRes filename of the results
 #' @keywords ddd
 #' @export
 #' @examples
 #' \dontrun{
 #' do.simTSv2()
 #' }
-simulation <-function(ddd,timePeriod,saveDate,pathRes){
+simulation <-function(ddd,timePeriod,saveDate,pathRes,nameRes="simulation"){
 
 
 if ( (!is.null(timePeriod)) && (!is.null(ddd))) {
@@ -85,7 +86,7 @@ if ( (!is.null(timePeriod)) && (!is.null(ddd))) {
   }
   colnames(simresult)<-c("year","month","day","hour","mhprec","mhtemp","qobs","qsim","middelsca","snowmag","M-D","D","G","Ea","X","Gbog","Eabog","Xbog","Z","waterGlacier","waterGSoilAndGlac")
   csv_eol <- ifelse(grepl("mingw", R.Version()$platform), "\n", "\r\n")
-  write.csv(simresult, file = normalizePath(file.path(pathRes,"simulation.csv"),mustWork = FALSE),row.names = FALSE,eol=csv_eol)
+  write.csv(simresult, file = normalizePath(file.path(pathRes,paste0(nameRes,".csv")),mustWork = FALSE),row.names = FALSE,eol=csv_eol)
 
   results <- list(simulation = simresult)
 

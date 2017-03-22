@@ -18,7 +18,7 @@
 date <-function(timeResolution,fromPeriod,toPeriod,format,saveDate=NULL){
 
    Timeresinsec <- timeManip::insec(timeResolution=timeResolution)
-   tmp <- timeManip::dateTimeSerie(timeResolution,fromPeriod,toPeriod)
+   tmp <- timeManip::timeserie(timeResolution,fromPeriod,toPeriod,precision="hourly")
    nbStep <- tmp$nbStep
    seqPeriod <- tmp$seqPeriod
    dateTS <- timeManip::convertFormat(date=seqPeriod,format="YY,MM,DD,HH")

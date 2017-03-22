@@ -4,7 +4,7 @@
 \alias{simulation}
 \title{Simulation}
 \usage{
-simulation(ddd, timePeriod, saveDate, pathRes)
+simulation(ddd, timePeriod, saveDate, pathRes, nameRes = "simulation")
 }
 \arguments{
 \item{ddd}{ddd object}
@@ -14,6 +14,8 @@ simulation(ddd, timePeriod, saveDate, pathRes)
 \item{saveDate}{date to be saved if any}
 
 \item{pathRes}{path of the results for the csv file}
+
+\item{nameRes}{filename of the results}
 }
 \description{
 Simulation of the hydrological model.
