@@ -42,7 +42,7 @@ Remotes:
     nexModeling/dddPrecipLZ,
     nexModeling/dddQ,
     nexModeling/dddScaOb,
-    nexModeling/timeManip,
+    jeanmarielepioufle/timeManip,
     nexModeling/onionR
 License: GPL-3
 URL: https://github.com/nexmodeling/ddd
