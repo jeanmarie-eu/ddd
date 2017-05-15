@@ -19,19 +19,19 @@ pathResults <- normalizePath(file.path("~/",paste0("dddRes_",format(Sys.time(), 
 
 dir.create(pathResults, showWarnings = FALSE, recursive = TRUE)
 
-ddd<- start(namefield="ddd",namespace="ddd",pathRes=pathResults)
+ddd<- ddd::start(namefield="ddd",namespace="ddd",pathRes=pathResults)
 
-timePeriod <- date(timeResolution=timeResolution,fromPeriod=fromPeriod,toPeriod=toPeriod,format="YY,MM,DD,HH",saveDate=saveDate)
+timePeriod <- ddd::date(timeResolution=timeResolution,fromPeriod=fromPeriod,toPeriod=toPeriod,format="YY,MM,DD,HH",saveDate=saveDate)
 
-obs(ddd=ddd,pathPrecip=pathData,filenamePrecip=fileData,pathTemp=pathData,filenameTemp=fileData,pathQ=pathData,filenameQ=fileData)
+ddd::obs(ddd=ddd,pathPrecip=pathData,filenamePrecip=fileData,pathTemp=pathData,filenameTemp=fileData,pathQ=pathData,filenameQ=fileData)
 
-param(ddd=ddd,method=methodParam,path=pathParam,filename=fileParam)
+ddd::param(ddd=ddd,method=methodParam,path=pathParam,filename=fileParam)
 
-model(ddd=ddd,method=methodModel,Timeresinsec=timePeriod$Timeresinsec,inputParam=ddd$inputParam$values())
+ddd::model(ddd=ddd,method=methodModel,Timeresinsec=timePeriod$Timeresinsec,inputParam=ddd$inputParam$values())
 
-init(ddd=ddd,Timeresinsec=timePeriod$Timeresinsec,q1=ddd$Q$values()[1])
+ddd::init(ddd=ddd,Timeresinsec=timePeriod$Timeresinsec,q1=ddd$Q$values()[1])
 
-results <- simulation(ddd=ddd,timePeriod=timePeriod,saveDate=saveDate,pathRes=pathResults)
+results <- ddd::simulation(ddd=ddd,timePeriod=timePeriod,saveDate=saveDate,pathRes=pathResults)
 
 if (FIGURE) {
   graph.ts(dateTS = timePeriod$dateTS,
