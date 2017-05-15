@@ -21,7 +21,7 @@ date <-function(timeResolution,fromPeriod,toPeriod,format,saveDate=NULL){
    tmp <- timeManip::timeserie(timeResolution,fromPeriod,toPeriod,precision="hourly")
    nbStep <- tmp$nbStep
    seqPeriod <- tmp$seqPeriod
-   dateTS <- timeManip::convertFormat(date=seqPeriod,format="YY,MM,DD,HH")
+   dateTS <- timeManip::YYYYmmddHH_m(tmp$seqPeriod)
 
    if (!is.null(saveDate)){
      saveDatePOSIXct <- base::strptime(saveDate,"%Y%m%d%H",tz="GMT")
